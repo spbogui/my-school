@@ -1,0 +1,20 @@
+version: '2'
+services:
+    myschool-app:
+        image: myschool
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://myschool-mysql:3306/myschool?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_JEST_URI=http://myschool-elasticsearch:9200
+        ports:
+            - 8080:8080
+    myschool-mysql:
+        extends:
+            file: mysql.yml
+            service: myschool-mysql
+    myschool-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: myschool-elasticsearch
