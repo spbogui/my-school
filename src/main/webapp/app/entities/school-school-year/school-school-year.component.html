@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="mySchoolApp.schoolSchoolYear.home.title">School School Years</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-school-school-year" [routerLink]="['/school-school-year/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="mySchoolApp.schoolSchoolYear.home.createLabel">
+            Create new School School Year
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'mySchoolApp.schoolSchoolYear.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="schoolSchoolYears">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span jhiTranslate="mySchoolApp.schoolSchoolYear.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="schoolNameId"><span jhiTranslate="mySchoolApp.schoolSchoolYear.schoolName">School Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="schoolYearlabelId"><span jhiTranslate="mySchoolApp.schoolSchoolYear.schoolYearlabel">School Yearlabel</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let schoolSchoolYear of schoolSchoolYears ;trackBy: trackId">
+                <td><a [routerLink]="['/school-school-year', schoolSchoolYear.id, 'view' ]">{{schoolSchoolYear.id}}</a></td>
+                <td>{{schoolSchoolYear.description}}</td>
+                <td>
+                    <div *ngIf="schoolSchoolYear.schoolNameId">
+                        <a [routerLink]="['../school', schoolSchoolYear.schoolNameId , 'view' ]" >{{schoolSchoolYear.schoolNameId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="schoolSchoolYear.schoolYearlabelId">
+                        <a [routerLink]="['../school-year', schoolSchoolYear.schoolYearlabelId , 'view' ]" >{{schoolSchoolYear.schoolYearlabelId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/school-school-year', schoolSchoolYear.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/school-school-year', schoolSchoolYear.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'school-school-year', { outlets: { popup: schoolSchoolYear.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="schoolSchoolYears && schoolSchoolYears.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

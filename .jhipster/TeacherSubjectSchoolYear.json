@@ -1,0 +1,41 @@
+{
+    "name": "TeacherSubjectSchoolYear",
+    "fields": [
+        {
+            "fieldName": "isPrincipal",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "actor",
+            "otherEntityRelationshipName": "teacherSubjectSchoolYear",
+            "relationshipName": "actor",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "teacher",
+            "otherEntityRelationshipName": "teacherSubjectSchoolYear",
+            "relationshipName": "teacher",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "schoolSchoolYear",
+            "otherEntityRelationshipName": "teacherSubjectSchoolYear",
+            "relationshipName": "schoolSchoolYear",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223327",
+    "entityTableName": "teacher_subject_school_year",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

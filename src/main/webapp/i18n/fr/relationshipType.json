@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "relationshipType": {
+            "home": {
+                "title": "RelationshipTypes",
+                "createLabel": "Créer un nouveau Relationship Type",
+                "createOrEditLabel": "Créer ou éditer un Relationship Type",
+                "search": "Recherche pour Relationship Type"
+            },
+            "created": "Un nouveau Relationship Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Relationship Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Relationship Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Relationship Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Relationship Type"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

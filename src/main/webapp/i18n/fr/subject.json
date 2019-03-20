@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "subject": {
+            "home": {
+                "title": "Subjects",
+                "createLabel": "Créer un nouveau Subject",
+                "createOrEditLabel": "Créer ou éditer un Subject",
+                "search": "Recherche pour Subject"
+            },
+            "created": "Un nouveau Subject a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Subject avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Subject avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Subject {{ id }} ?"
+            },
+            "detail": {
+                "title": "Subject"
+            },
+            "label": "Label",
+            "description": "Description"
+        }
+    }
+}

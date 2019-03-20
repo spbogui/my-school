@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="enrolment">
+            <h2><span jhiTranslate="mySchoolApp.enrolment.detail.title">Enrolment</span> {{enrolment.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.enrolment.enrolmentDate">Enrolment Date</span></dt>
+                <dd>
+                    <span>{{enrolment.enrolmentDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.regimenRate">Regimen Rate</span></dt>
+                <dd>
+                    <span>{{enrolment.regimenRate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.repeating">Repeating</span></dt>
+                <dd>
+                    <span>{{enrolment.repeating}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.modernLanguage1">Modern Language 1</span></dt>
+                <dd>
+                    <span>{{enrolment.modernLanguage1}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.modernLanguage2">Modern Language 2</span></dt>
+                <dd>
+                    <span>{{enrolment.modernLanguage2}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.exemption">Exemption</span></dt>
+                <dd>
+                    <span>{{enrolment.exemption}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.withInsurance">With Insurance</span></dt>
+                <dd>
+                    <span>{{enrolment.withInsurance}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.schoolYear">School Year</span></dt>
+                <dd>
+                    <div *ngIf="enrolment.schoolYearId">
+                        <a [routerLink]="['/school-year', enrolment.schoolYearId, 'view']">{{enrolment.schoolYearId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.actor">Actor</span></dt>
+                <dd>
+                    <div *ngIf="enrolment.actorId">
+                        <a [routerLink]="['/actor', enrolment.actorId, 'view']">{{enrolment.actorId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.classRoom">Class Room</span></dt>
+                <dd>
+                    <div *ngIf="enrolment.classRoomId">
+                        <a [routerLink]="['/class-room', enrolment.classRoomId, 'view']">{{enrolment.classRoomId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.regimen">Regimen</span></dt>
+                <dd>
+                    <div *ngIf="enrolment.regimenId">
+                        <a [routerLink]="['/regimen', enrolment.regimenId, 'view']">{{enrolment.regimenId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.previousSchool">Previous School</span></dt>
+                <dd>
+                    <div *ngIf="enrolment.previousSchoolId">
+                        <a [routerLink]="['/school', enrolment.previousSchoolId, 'view']">{{enrolment.previousSchoolId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.enrolment.previousClass">Previous Class</span></dt>
+                <dd>
+                    <div *ngIf="enrolment.previousClassId">
+                        <a [routerLink]="['/class-room', enrolment.previousClassId, 'view']">{{enrolment.previousClassId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/enrolment', enrolment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

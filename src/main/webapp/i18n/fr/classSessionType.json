@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "classSessionType": {
+            "home": {
+                "title": "ClassSessionTypes",
+                "createLabel": "Créer un nouveau Class Session Type",
+                "createOrEditLabel": "Créer ou éditer un Class Session Type",
+                "search": "Recherche pour Class Session Type"
+            },
+            "created": "Un nouveau Class Session Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Class Session Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Class Session Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Class Session Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Class Session Type"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

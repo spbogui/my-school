@@ -1,0 +1,34 @@
+{
+    "mySchoolApp": {
+        "enrolment": {
+            "home": {
+                "title": "Enrolments",
+                "createLabel": "Create a new Enrolment",
+                "createOrEditLabel": "Create or edit a Enrolment",
+                "search": "Search for Enrolment"
+            },
+            "created": "A new Enrolment is created with identifier {{ param }}",
+            "updated": "A Enrolment is updated with identifier {{ param }}",
+            "deleted": "A Enrolment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Enrolment {{ id }}?"
+            },
+            "detail": {
+                "title": "Enrolment"
+            },
+            "enrolmentDate": "Enrolment Date",
+            "regimenRate": "Regimen Rate",
+            "repeating": "Repeating",
+            "modernLanguage1": "Modern Language 1",
+            "modernLanguage2": "Modern Language 2",
+            "exemption": "Exemption",
+            "withInsurance": "With Insurance",
+            "schoolYear": "School Year",
+            "actor": "Actor",
+            "classRoom": "Class Room",
+            "regimen": "Regimen",
+            "previousSchool": "Previous School",
+            "previousClass": "Previous Class"
+        }
+    }
+}

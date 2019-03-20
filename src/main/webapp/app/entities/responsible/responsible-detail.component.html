@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="responsible">
+            <h2><span jhiTranslate="mySchoolApp.responsible.detail.title">Responsible</span> {{responsible.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.responsible.profession">Profession</span></dt>
+                <dd>
+                    <span>{{responsible.profession}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.responsible.actor">Actor</span></dt>
+                <dd>
+                    <div *ngIf="responsible.actorId">
+                        <a [routerLink]="['/actor', responsible.actorId, 'view']">{{responsible.actorId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/responsible', responsible.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

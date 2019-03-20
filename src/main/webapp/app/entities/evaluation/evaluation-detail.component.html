@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="evaluation">
+            <h2><span jhiTranslate="mySchoolApp.evaluation.detail.title">Evaluation</span> {{evaluation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.evaluation.plannedDate">Planned Date</span></dt>
+                <dd>
+                    <span>{{evaluation.plannedDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.evaluation.isDone">Is Done</span></dt>
+                <dd>
+                    <span>{{evaluation.isDone}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.evaluation.evaluationDate">Evaluation Date</span></dt>
+                <dd>
+                    <span>{{evaluation.evaluationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.evaluation.duration">Duration</span></dt>
+                <dd>
+                    <span>{{evaluation.duration}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.evaluation.evaluationType">Evaluation Type</span></dt>
+                <dd>
+                    <div *ngIf="evaluation.evaluationTypeId">
+                        <a [routerLink]="['/evaluation-type', evaluation.evaluationTypeId, 'view']">{{evaluation.evaluationTypeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.evaluation.schoolSchoolYear">School School Year</span></dt>
+                <dd>
+                    <div *ngIf="evaluation.schoolSchoolYearId">
+                        <a [routerLink]="['/school-school-year', evaluation.schoolSchoolYearId, 'view']">{{evaluation.schoolSchoolYearId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.evaluation.period">Period</span></dt>
+                <dd>
+                    <div *ngIf="evaluation.periodId">
+                        <a [routerLink]="['/period', evaluation.periodId, 'view']">{{evaluation.periodId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.evaluation.classRoom">Class Room</span></dt>
+                <dd>
+                    <span *ngFor="let classRoom of evaluation.classRooms; let last = last">
+                        <a [routerLink]="['/class-room', classRoom?.id, 'view' ]">{{classRoom.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/evaluation', evaluation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

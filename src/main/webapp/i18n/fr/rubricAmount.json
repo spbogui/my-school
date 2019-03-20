@@ -1,0 +1,26 @@
+{
+    "mySchoolApp": {
+        "rubricAmount": {
+            "home": {
+                "title": "RubricAmounts",
+                "createLabel": "Créer un nouveau Rubric Amount",
+                "createOrEditLabel": "Créer ou éditer un Rubric Amount",
+                "search": "Recherche pour Rubric Amount"
+            },
+            "created": "Un nouveau Rubric Amount a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Rubric Amount avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Rubric Amount avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Rubric Amount {{ id }} ?"
+            },
+            "detail": {
+                "title": "Rubric Amount"
+            },
+            "amount": "Amount",
+            "paymentMethod": "Payment Method",
+            "rubric": "Rubric",
+            "level": "Level",
+            "schoolYear": "School Year"
+        }
+    }
+}

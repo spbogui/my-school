@@ -1,0 +1,24 @@
+{
+    "mySchoolApp": {
+        "schoolSchoolYear": {
+            "home": {
+                "title": "SchoolSchoolYears",
+                "createLabel": "Créer un nouveau School School Year",
+                "createOrEditLabel": "Créer ou éditer un School School Year",
+                "search": "Recherche pour School School Year"
+            },
+            "created": "Un nouveau School School Year a été créé avec l'identifiant {{ param }}",
+            "updated": "Le School School Year avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le School School Year avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le School School Year {{ id }} ?"
+            },
+            "detail": {
+                "title": "School School Year"
+            },
+            "description": "Description",
+            "schoolName": "School Name",
+            "schoolYearlabel": "School Yearlabel"
+        }
+    }
+}

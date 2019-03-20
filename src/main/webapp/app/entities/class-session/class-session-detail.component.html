@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="classSession">
+            <h2><span jhiTranslate="mySchoolApp.classSession.detail.title">Class Session</span> {{classSession.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.classSession.startHour">Start Hour</span></dt>
+                <dd>
+                    <span>{{classSession.startHour}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.classSession.endHour">End Hour</span></dt>
+                <dd>
+                    <span>{{classSession.endHour}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.classSession.detail">Detail</span></dt>
+                <dd>
+                    <span>{{classSession.detail}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.classSession.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{classSession.createdAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.classSession.classSessionType">Class Session Type</span></dt>
+                <dd>
+                    <div *ngIf="classSession.classSessionTypeId">
+                        <a [routerLink]="['/class-session-type', classSession.classSessionTypeId, 'view']">{{classSession.classSessionTypeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.classSession.program">Program</span></dt>
+                <dd>
+                    <div *ngIf="classSession.programId">
+                        <a [routerLink]="['/program', classSession.programId, 'view']">{{classSession.programId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/class-session', classSession.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

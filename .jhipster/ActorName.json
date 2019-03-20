@@ -1,0 +1,56 @@
+{
+    "name": "ActorName",
+    "fields": [
+        {
+            "fieldName": "civility",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "familyName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "givenName1",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "givenName2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "givenName3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maidenName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "actor",
+            "otherEntityRelationshipName": "actorName",
+            "relationshipName": "actor",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223313",
+    "entityTableName": "actor_name",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

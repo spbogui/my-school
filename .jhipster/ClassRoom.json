@@ -1,0 +1,30 @@
+{
+    "name": "ClassRoom",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "level",
+            "otherEntityRelationshipName": "classRoom",
+            "relationshipName": "level",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223303",
+    "entityTableName": "class_room",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

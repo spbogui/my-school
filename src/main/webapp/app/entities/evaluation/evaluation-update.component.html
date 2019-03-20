@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-evaluation-heading" jhiTranslate="mySchoolApp.evaluation.home.createOrEditLabel">Create or edit a Evaluation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!evaluation.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="evaluation.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.evaluation.plannedDate" for="field_plannedDate">Planned Date</label>
+                    <div class="input-group">
+                        <input id="field_plannedDate" type="text" class="form-control" name="plannedDate" ngbDatepicker  #plannedDateDp="ngbDatepicker" [(ngModel)]="evaluation.plannedDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="plannedDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.plannedDate?.dirty && editForm.controls.plannedDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.plannedDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.evaluation.isDone" for="field_isDone">Is Done</label>
+                    <input type="checkbox" class="form-control" name="isDone" id="field_isDone"
+                        [(ngModel)]="evaluation.isDone" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.evaluation.evaluationDate" for="field_evaluationDate">Evaluation Date</label>
+                    <div class="input-group">
+                        <input id="field_evaluationDate" type="text" class="form-control" name="evaluationDate" ngbDatepicker  #evaluationDateDp="ngbDatepicker" [(ngModel)]="evaluation.evaluationDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="evaluationDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.evaluation.duration" for="field_duration">Duration</label>
+                    <input type="number" class="form-control" name="duration" id="field_duration"
+                        [(ngModel)]="evaluation.duration" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.evaluation.evaluationType" for="field_evaluationType">Evaluation Type</label>
+                    <select class="form-control" id="field_evaluationType" name="evaluationType" [(ngModel)]="evaluation.evaluationTypeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="evaluationTypeOption.id" *ngFor="let evaluationTypeOption of evaluationtypes; trackBy: trackEvaluationTypeById">{{evaluationTypeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.evaluation.schoolSchoolYear" for="field_schoolSchoolYear">School School Year</label>
+                    <select class="form-control" id="field_schoolSchoolYear" name="schoolSchoolYear" [(ngModel)]="evaluation.schoolSchoolYearId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="schoolSchoolYearOption.id" *ngFor="let schoolSchoolYearOption of schoolschoolyears; trackBy: trackSchoolSchoolYearById">{{schoolSchoolYearOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.evaluation.period" for="field_period">Period</label>
+                    <select class="form-control" id="field_period" name="period" [(ngModel)]="evaluation.periodId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="periodOption.id" *ngFor="let periodOption of periods; trackBy: trackPeriodById">{{periodOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="mySchoolApp.evaluation.classRoom" for="field_classRoom">Class Room</label>
+                    <select class="form-control" id="field_classRoom" multiple name="classRoom" [(ngModel)]="evaluation.classRooms">
+                        <option [ngValue]="getSelected(evaluation.classRooms, classRoomOption)" *ngFor="let classRoomOption of classrooms; trackBy: trackClassRoomById">{{classRoomOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

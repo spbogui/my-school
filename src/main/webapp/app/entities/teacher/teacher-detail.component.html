@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="teacher">
+            <h2><span jhiTranslate="mySchoolApp.teacher.detail.title">Teacher</span> {{teacher.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.teacher.hourlyRate">Hourly Rate</span></dt>
+                <dd>
+                    <span>{{teacher.hourlyRate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.teacher.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="teacher.employeeId">
+                        <a [routerLink]="['/employee', teacher.employeeId, 'view']">{{teacher.employeeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.teacher.subject">Subject</span></dt>
+                <dd>
+                    <span *ngFor="let subject of teacher.subjects; let last = last">
+                        <a [routerLink]="['/subject', subject?.id, 'view' ]">{{subject.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/teacher', teacher.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

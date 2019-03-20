@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-student-heading" jhiTranslate="mySchoolApp.student.home.createOrEditLabel">Create or edit a Student</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!student.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="student.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.student.pareantSeparated" for="field_pareantSeparated">Pareant Separated</label>
+                    <input type="checkbox" class="form-control" name="pareantSeparated" id="field_pareantSeparated"
+                        [(ngModel)]="student.pareantSeparated" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.student.fatherIsAlive" for="field_fatherIsAlive">Father Is Alive</label>
+                    <input type="checkbox" class="form-control" name="fatherIsAlive" id="field_fatherIsAlive"
+                        [(ngModel)]="student.fatherIsAlive" />
+                    <div [hidden]="!(editForm.controls.fatherIsAlive?.dirty && editForm.controls.fatherIsAlive?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.fatherIsAlive?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.student.livingWithFather" for="field_livingWithFather">Living With Father</label>
+                    <input type="checkbox" class="form-control" name="livingWithFather" id="field_livingWithFather"
+                        [(ngModel)]="student.livingWithFather" />
+                    <div [hidden]="!(editForm.controls.livingWithFather?.dirty && editForm.controls.livingWithFather?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.livingWithFather?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.student.motherIsAlive" for="field_motherIsAlive">Mother Is Alive</label>
+                    <input type="checkbox" class="form-control" name="motherIsAlive" id="field_motherIsAlive"
+                        [(ngModel)]="student.motherIsAlive" />
+                    <div [hidden]="!(editForm.controls.motherIsAlive?.dirty && editForm.controls.motherIsAlive?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.motherIsAlive?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.student.livingWithMother" for="field_livingWithMother">Living With Mother</label>
+                    <input type="checkbox" class="form-control" name="livingWithMother" id="field_livingWithMother"
+                        [(ngModel)]="student.livingWithMother" />
+                    <div [hidden]="!(editForm.controls.livingWithMother?.dirty && editForm.controls.livingWithMother?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.livingWithMother?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.student.actor" for="field_actor">Actor</label>
+                    <select class="form-control" id="field_actor" name="actor" [(ngModel)]="student.actorId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="actorOption.id" *ngFor="let actorOption of actors; trackBy: trackActorById">{{actorOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

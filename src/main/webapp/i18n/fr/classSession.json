@@ -1,0 +1,27 @@
+{
+    "mySchoolApp": {
+        "classSession": {
+            "home": {
+                "title": "ClassSessions",
+                "createLabel": "Créer un nouveau Class Session",
+                "createOrEditLabel": "Créer ou éditer un Class Session",
+                "search": "Recherche pour Class Session"
+            },
+            "created": "Un nouveau Class Session a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Class Session avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Class Session avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Class Session {{ id }} ?"
+            },
+            "detail": {
+                "title": "Class Session"
+            },
+            "startHour": "Start Hour",
+            "endHour": "End Hour",
+            "detail": "Detail",
+            "createdAt": "Created At",
+            "classSessionType": "Class Session Type",
+            "program": "Program"
+        }
+    }
+}

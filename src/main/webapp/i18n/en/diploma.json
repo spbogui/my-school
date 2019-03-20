@@ -1,0 +1,25 @@
+{
+    "mySchoolApp": {
+        "diploma": {
+            "home": {
+                "title": "Diplomas",
+                "createLabel": "Create a new Diploma",
+                "createOrEditLabel": "Create or edit a Diploma",
+                "search": "Search for Diploma"
+            },
+            "created": "A new Diploma is created with identifier {{ param }}",
+            "updated": "A Diploma is updated with identifier {{ param }}",
+            "deleted": "A Diploma is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Diploma {{ id }}?"
+            },
+            "detail": {
+                "title": "Diploma"
+            },
+            "diplomaLabel": "Diploma Label",
+            "description": "Description",
+            "cycle": "Cycle",
+            "parentDiploma": "Parent Diploma"
+        }
+    }
+}

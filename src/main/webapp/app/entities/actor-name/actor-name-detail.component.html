@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="actorName">
+            <h2><span jhiTranslate="mySchoolApp.actorName.detail.title">Actor Name</span> {{actorName.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.actorName.civility">Civility</span></dt>
+                <dd>
+                    <span>{{actorName.civility}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actorName.familyName">Family Name</span></dt>
+                <dd>
+                    <span>{{actorName.familyName}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actorName.givenName1">Given Name 1</span></dt>
+                <dd>
+                    <span>{{actorName.givenName1}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actorName.givenName2">Given Name 2</span></dt>
+                <dd>
+                    <span>{{actorName.givenName2}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actorName.givenName3">Given Name 3</span></dt>
+                <dd>
+                    <span>{{actorName.givenName3}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actorName.maidenName">Maiden Name</span></dt>
+                <dd>
+                    <span>{{actorName.maidenName}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actorName.actor">Actor</span></dt>
+                <dd>
+                    <div *ngIf="actorName.actorId">
+                        <a [routerLink]="['/actor', actorName.actorId, 'view']">{{actorName.actorId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/actor-name', actorName.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

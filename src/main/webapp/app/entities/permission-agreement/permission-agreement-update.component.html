@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-permission-agreement-heading" jhiTranslate="mySchoolApp.permissionAgreement.home.createOrEditLabel">Create or edit a Permission Agreement</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!permissionAgreement.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="permissionAgreement.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.permissionAgreement.permissionAllowed" for="field_permissionAllowed">Permission Allowed</label>
+                    <input type="checkbox" class="form-control" name="permissionAllowed" id="field_permissionAllowed"
+                        [(ngModel)]="permissionAgreement.permissionAllowed" />
+                    <div [hidden]="!(editForm.controls.permissionAllowed?.dirty && editForm.controls.permissionAllowed?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.permissionAllowed?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.permissionAgreement.allowanceDate" for="field_allowanceDate">Allowance Date</label>
+                    <div class="input-group">
+                        <input id="field_allowanceDate" type="text" class="form-control" name="allowanceDate" ngbDatepicker  #allowanceDateDp="ngbDatepicker" [(ngModel)]="permissionAgreement.allowanceDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="allowanceDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.permissionAgreement.permissionStartDate" for="field_permissionStartDate">Permission Start Date</label>
+                    <div class="input-group">
+                        <input id="field_permissionStartDate" type="text" class="form-control" name="permissionStartDate" ngbDatepicker  #permissionStartDateDp="ngbDatepicker" [(ngModel)]="permissionAgreement.permissionStartDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="permissionStartDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.permissionAgreement.permissionEndDate" for="field_permissionEndDate">Permission End Date</label>
+                    <div class="input-group">
+                        <input id="field_permissionEndDate" type="text" class="form-control" name="permissionEndDate" ngbDatepicker  #permissionEndDateDp="ngbDatepicker" [(ngModel)]="permissionAgreement.permissionEndDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="permissionEndDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.permissionAgreement.returnDate" for="field_returnDate">Return Date</label>
+                    <div class="input-group">
+                        <input id="field_returnDate" type="text" class="form-control" name="returnDate" ngbDatepicker  #returnDateDp="ngbDatepicker" [(ngModel)]="permissionAgreement.returnDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="returnDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.permissionAgreement.effectiveReturnDate" for="field_effectiveReturnDate">Effective Return Date</label>
+                    <div class="input-group">
+                        <input id="field_effectiveReturnDate" type="text" class="form-control" name="effectiveReturnDate" ngbDatepicker  #effectiveReturnDateDp="ngbDatepicker" [(ngModel)]="permissionAgreement.effectiveReturnDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="effectiveReturnDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.permissionAgreement.memo" for="field_memo">Memo</label>
+                    <input type="text" class="form-control" name="memo" id="field_memo"
+                        [(ngModel)]="permissionAgreement.memo" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.permissionAgreement.askingPermission" for="field_askingPermission">Asking Permission</label>
+                    <select class="form-control" id="field_askingPermission" name="askingPermission" [(ngModel)]="permissionAgreement.askingPermissionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="askingPermissionOption.id" *ngFor="let askingPermissionOption of askingpermissions; trackBy: trackAskingPermissionById">{{askingPermissionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

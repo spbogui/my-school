@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="school">
+            <h2><span jhiTranslate="mySchoolApp.school.detail.title">School</span> {{school.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.school.schoolName">School Name</span></dt>
+                <dd>
+                    <span>{{school.schoolName}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.school.slogan">Slogan</span></dt>
+                <dd>
+                    <span>{{school.slogan}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.school.openningDate">Openning Date</span></dt>
+                <dd>
+                    <span>{{school.openningDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.school.phoneNumber1">Phone Number 1</span></dt>
+                <dd>
+                    <span>{{school.phoneNumber1}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.school.phoneNumber2">Phone Number 2</span></dt>
+                <dd>
+                    <span>{{school.phoneNumber2}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.school.email">Email</span></dt>
+                <dd>
+                    <span>{{school.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.school.fax">Fax</span></dt>
+                <dd>
+                    <span>{{school.fax}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.school.webSiteLink">Web Site Link</span></dt>
+                <dd>
+                    <span>{{school.webSiteLink}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.school.address">Address</span></dt>
+                <dd>
+                    <span>{{school.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.school.town">Town</span></dt>
+                <dd>
+                    <span>{{school.town}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.school.region">Region</span></dt>
+                <dd>
+                    <span>{{school.region}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.school.municipality">Municipality</span></dt>
+                <dd>
+                    <span>{{school.municipality}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/school', school.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

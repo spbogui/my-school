@@ -1,0 +1,51 @@
+{
+    "name": "StudentDiploma",
+    "fields": [
+        {
+            "fieldName": "mention",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "graduationDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "student",
+            "otherEntityRelationshipName": "studentDiploma",
+            "relationshipName": "student",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "diploma",
+            "otherEntityRelationshipName": "studentDiploma",
+            "relationshipName": "diploma",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "schoolSchoolYear",
+            "otherEntityRelationshipName": "studentDiploma",
+            "relationshipName": "schoolSchoolYear",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223342",
+    "entityTableName": "student_diploma",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

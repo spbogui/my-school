@@ -1,0 +1,25 @@
+{
+    "mySchoolApp": {
+        "level": {
+            "home": {
+                "title": "Levels",
+                "createLabel": "Create a new Level",
+                "createOrEditLabel": "Create or edit a Level",
+                "search": "Search for Level"
+            },
+            "created": "A new Level is created with identifier {{ param }}",
+            "updated": "A Level is updated with identifier {{ param }}",
+            "deleted": "A Level is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Level {{ id }}?"
+            },
+            "detail": {
+                "title": "Level"
+            },
+            "label": "Label",
+            "shortForm": "Short Form",
+            "parentLevel": "Parent Level",
+            "cycle": "Cycle"
+        }
+    }
+}

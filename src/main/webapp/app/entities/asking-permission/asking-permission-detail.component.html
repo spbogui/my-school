@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="askingPermission">
+            <h2><span jhiTranslate="mySchoolApp.askingPermission.detail.title">Asking Permission</span> {{askingPermission.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.askingPermission.askingDate">Asking Date</span></dt>
+                <dd>
+                    <span>{{askingPermission.askingDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.askingPermission.numberOfDay">Number Of Day</span></dt>
+                <dd>
+                    <span>{{askingPermission.numberOfDay}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.askingPermission.reason">Reason</span></dt>
+                <dd>
+                    <span>{{askingPermission.reason}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.askingPermission.schoolSchoolYear">School School Year</span></dt>
+                <dd>
+                    <div *ngIf="askingPermission.schoolSchoolYearId">
+                        <a [routerLink]="['/school-school-year', askingPermission.schoolSchoolYearId, 'view']">{{askingPermission.schoolSchoolYearId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.askingPermission.student">Student</span></dt>
+                <dd>
+                    <div *ngIf="askingPermission.studentId">
+                        <a [routerLink]="['/student', askingPermission.studentId, 'view']">{{askingPermission.studentId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/asking-permission', askingPermission.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

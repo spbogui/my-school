@@ -1,0 +1,25 @@
+{
+    "mySchoolApp": {
+        "actorRelationship": {
+            "home": {
+                "title": "ActorRelationships",
+                "createLabel": "Créer un nouveau Actor Relationship",
+                "createOrEditLabel": "Créer ou éditer un Actor Relationship",
+                "search": "Recherche pour Actor Relationship"
+            },
+            "created": "Un nouveau Actor Relationship a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Actor Relationship avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Actor Relationship avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Actor Relationship {{ id }} ?"
+            },
+            "detail": {
+                "title": "Actor Relationship"
+            },
+            "isActive": "Is Active",
+            "responsible": "Responsible",
+            "student": "Student",
+            "relationshipType": "Relationship Type"
+        }
+    }
+}

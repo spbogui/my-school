@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="regimen">
+            <h2><span jhiTranslate="mySchoolApp.regimen.detail.title">Regimen</span> {{regimen.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.regimen.regimenLabel">Regimen Label</span></dt>
+                <dd>
+                    <span>{{regimen.regimenLabel}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.regimen.description">Description</span></dt>
+                <dd>
+                    <span>{{regimen.description}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/regimen', regimen.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

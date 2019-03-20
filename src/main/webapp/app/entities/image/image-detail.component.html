@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="image">
+            <h2><span jhiTranslate="mySchoolApp.image.detail.title">Image</span> {{image.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.image.content">Content</span></dt>
+                <dd>
+                    <div *ngIf="image.content">
+                        <a (click)="openFile(image.contentContentType, image.content)" jhiTranslate="entity.action.open">open</a>
+                        {{image.contentContentType}}, {{byteSize(image.content)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.image.name">Name</span></dt>
+                <dd>
+                    <span>{{image.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.image.format">Format</span></dt>
+                <dd>
+                    <span>{{image.format}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.image.imageSize">Image Size</span></dt>
+                <dd>
+                    <span>{{image.imageSize}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.image.isUsed">Is Used</span></dt>
+                <dd>
+                    <span>{{image.isUsed}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.image.actor">Actor</span></dt>
+                <dd>
+                    <div *ngIf="image.actorId">
+                        <a [routerLink]="['/actor', image.actorId, 'view']">{{image.actorId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/image', image.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

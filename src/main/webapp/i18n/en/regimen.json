@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "regimen": {
+            "home": {
+                "title": "Regimen",
+                "createLabel": "Create a new Regimen",
+                "createOrEditLabel": "Create or edit a Regimen",
+                "search": "Search for Regimen"
+            },
+            "created": "A new Regimen is created with identifier {{ param }}",
+            "updated": "A Regimen is updated with identifier {{ param }}",
+            "deleted": "A Regimen is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Regimen {{ id }}?"
+            },
+            "detail": {
+                "title": "Regimen"
+            },
+            "regimenLabel": "Regimen Label",
+            "description": "Description"
+        }
+    }
+}

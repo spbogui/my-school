@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-student-evaluation-heading" jhiTranslate="mySchoolApp.studentEvaluation.home.createOrEditLabel">Create or edit a Student Evaluation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!studentEvaluation.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="studentEvaluation.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentEvaluation.grade" for="field_grade">Grade</label>
+                    <input type="number" class="form-control" name="grade" id="field_grade"
+                        [(ngModel)]="studentEvaluation.grade" required/>
+                    <div [hidden]="!(editForm.controls.grade?.dirty && editForm.controls.grade?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.grade?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.grade?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentEvaluation.actor" for="field_actor">Actor</label>
+                    <select class="form-control" id="field_actor" name="actor" [(ngModel)]="studentEvaluation.actorId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="actorOption.id" *ngFor="let actorOption of actors; trackBy: trackActorById">{{actorOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentEvaluation.evaluation" for="field_evaluation">Evaluation</label>
+                    <select class="form-control" id="field_evaluation" name="evaluation" [(ngModel)]="studentEvaluation.evaluationId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="evaluationOption.id" *ngFor="let evaluationOption of evaluations; trackBy: trackEvaluationById">{{evaluationOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentEvaluation.evaluationMode" for="field_evaluationMode">Evaluation Mode</label>
+                    <select class="form-control" id="field_evaluationMode" name="evaluationMode" [(ngModel)]="studentEvaluation.evaluationModeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="evaluationModeOption.id" *ngFor="let evaluationModeOption of evaluationmodes; trackBy: trackEvaluationModeById">{{evaluationModeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentEvaluation.subject" for="field_subject">Subject</label>
+                    <select class="form-control" id="field_subject" name="subject" [(ngModel)]="studentEvaluation.subjectId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="subjectOption.id" *ngFor="let subjectOption of subjects; trackBy: trackSubjectById">{{subjectOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

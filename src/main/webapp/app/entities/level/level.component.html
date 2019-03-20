@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="mySchoolApp.level.home.title">Levels</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-level" [routerLink]="['/level/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="mySchoolApp.level.home.createLabel">
+            Create new Level
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'mySchoolApp.level.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="levels">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="label"><span jhiTranslate="mySchoolApp.level.label">Label</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="shortForm"><span jhiTranslate="mySchoolApp.level.shortForm">Short Form</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="parentLevel.id"><span jhiTranslate="mySchoolApp.level.parentLevel">Parent Level</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cycle.id"><span jhiTranslate="mySchoolApp.level.cycle">Cycle</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let level of levels ;trackBy: trackId">
+                <td><a [routerLink]="['/level', level.id, 'view' ]">{{level.id}}</a></td>
+                <td>{{level.label}}</td>
+                <td>{{level.shortForm}}</td>
+                <td>
+                    <div *ngIf="level.parentLevel">
+                        <a [routerLink]="['../level', level.parentLevel?.id, 'view' ]" >{{level.parentLevel?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="level.cycle">
+                        <a [routerLink]="['../cycle', level.cycle?.id, 'view' ]" >{{level.cycle?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/level', level.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/level', level.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'level', { outlets: { popup: level.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="levels && levels.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

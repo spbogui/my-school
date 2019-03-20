@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="studentDiploma">
+            <h2><span jhiTranslate="mySchoolApp.studentDiploma.detail.title">Student Diploma</span> {{studentDiploma.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.studentDiploma.mention">Mention</span></dt>
+                <dd>
+                    <span>{{studentDiploma.mention}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.studentDiploma.graduationDate">Graduation Date</span></dt>
+                <dd>
+                    <span>{{studentDiploma.graduationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.studentDiploma.student">Student</span></dt>
+                <dd>
+                    <div *ngIf="studentDiploma.studentId">
+                        <a [routerLink]="['/student', studentDiploma.studentId, 'view']">{{studentDiploma.studentId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.studentDiploma.diploma">Diploma</span></dt>
+                <dd>
+                    <div *ngIf="studentDiploma.diplomaId">
+                        <a [routerLink]="['/diploma', studentDiploma.diplomaId, 'view']">{{studentDiploma.diplomaId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.studentDiploma.schoolSchoolYear">School School Year</span></dt>
+                <dd>
+                    <div *ngIf="studentDiploma.schoolSchoolYearId">
+                        <a [routerLink]="['/school-school-year', studentDiploma.schoolSchoolYearId, 'view']">{{studentDiploma.schoolSchoolYearId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/student-diploma', studentDiploma.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

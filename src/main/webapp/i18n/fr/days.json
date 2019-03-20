@@ -1,0 +1,22 @@
+{
+    "mySchoolApp": {
+        "days": {
+            "home": {
+                "title": "Days",
+                "createLabel": "Créer un nouveau Days",
+                "createOrEditLabel": "Créer ou éditer un Days",
+                "search": "Recherche pour Days"
+            },
+            "created": "Un nouveau Days a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Days avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Days avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Days {{ id }} ?"
+            },
+            "detail": {
+                "title": "Days"
+            },
+            "name": "Name"
+        }
+    }
+}

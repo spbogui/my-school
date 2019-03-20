@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="rubricAmount">
+            <h2><span jhiTranslate="mySchoolApp.rubricAmount.detail.title">Rubric Amount</span> {{rubricAmount.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.rubricAmount.amount">Amount</span></dt>
+                <dd>
+                    <span>{{rubricAmount.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.rubricAmount.paymentMethod">Payment Method</span></dt>
+                <dd>
+                    <span>{{rubricAmount.paymentMethod}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.rubricAmount.rubric">Rubric</span></dt>
+                <dd>
+                    <div *ngIf="rubricAmount.rubricId">
+                        <a [routerLink]="['/rubric', rubricAmount.rubricId, 'view']">{{rubricAmount.rubricId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.rubricAmount.level">Level</span></dt>
+                <dd>
+                    <div *ngIf="rubricAmount.levelId">
+                        <a [routerLink]="['/level', rubricAmount.levelId, 'view']">{{rubricAmount.levelId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.rubricAmount.schoolYear">School Year</span></dt>
+                <dd>
+                    <div *ngIf="rubricAmount.schoolYearId">
+                        <a [routerLink]="['/school-year', rubricAmount.schoolYearId, 'view']">{{rubricAmount.schoolYearId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/rubric-amount', rubricAmount.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="mySchoolApp.evaluation.home.title">Evaluations</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-evaluation" [routerLink]="['/evaluation/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="mySchoolApp.evaluation.home.createLabel">
+            Create new Evaluation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'mySchoolApp.evaluation.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="evaluations">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="plannedDate"><span jhiTranslate="mySchoolApp.evaluation.plannedDate">Planned Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isDone"><span jhiTranslate="mySchoolApp.evaluation.isDone">Is Done</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="evaluationDate"><span jhiTranslate="mySchoolApp.evaluation.evaluationDate">Evaluation Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="duration"><span jhiTranslate="mySchoolApp.evaluation.duration">Duration</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="evaluationTypeId"><span jhiTranslate="mySchoolApp.evaluation.evaluationType">Evaluation Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="schoolSchoolYearId"><span jhiTranslate="mySchoolApp.evaluation.schoolSchoolYear">School School Year</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="periodId"><span jhiTranslate="mySchoolApp.evaluation.period">Period</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let evaluation of evaluations ;trackBy: trackId">
+                <td><a [routerLink]="['/evaluation', evaluation.id, 'view' ]">{{evaluation.id}}</a></td>
+                <td>{{evaluation.plannedDate | date:'mediumDate'}}</td>
+                <td>{{evaluation.isDone}}</td>
+                <td>{{evaluation.evaluationDate | date:'mediumDate'}}</td>
+                <td>{{evaluation.duration}}</td>
+                <td>
+                    <div *ngIf="evaluation.evaluationTypeId">
+                        <a [routerLink]="['../evaluation-type', evaluation.evaluationTypeId , 'view' ]" >{{evaluation.evaluationTypeId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="evaluation.schoolSchoolYearId">
+                        <a [routerLink]="['../school-school-year', evaluation.schoolSchoolYearId , 'view' ]" >{{evaluation.schoolSchoolYearId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="evaluation.periodId">
+                        <a [routerLink]="['../period', evaluation.periodId , 'view' ]" >{{evaluation.periodId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/evaluation', evaluation.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/evaluation', evaluation.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'evaluation', { outlets: { popup: evaluation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="evaluations && evaluations.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

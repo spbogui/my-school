@@ -1,0 +1,24 @@
+{
+    "mySchoolApp": {
+        "teacherMissingSession": {
+            "home": {
+                "title": "Teacher Missing Sessions",
+                "createLabel": "Create a new Teacher Missing Session",
+                "createOrEditLabel": "Create or edit a Teacher Missing Session",
+                "search": "Search for Teacher Missing Session"
+            },
+            "created": "A new Teacher Missing Session is created with identifier {{ param }}",
+            "updated": "A Teacher Missing Session is updated with identifier {{ param }}",
+            "deleted": "A Teacher Missing Session is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Teacher Missing Session {{ id }}?"
+            },
+            "detail": {
+                "title": "Teacher Missing Session"
+            },
+            "isJustified": "Is Justified",
+            "classSession": "Class Session",
+            "student": "Student"
+        }
+    }
+}

@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-student-diploma-heading" jhiTranslate="mySchoolApp.studentDiploma.home.createOrEditLabel">Create or edit a Student Diploma</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!studentDiploma.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="studentDiploma.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentDiploma.mention" for="field_mention">Mention</label>
+                    <input type="text" class="form-control" name="mention" id="field_mention"
+                        [(ngModel)]="studentDiploma.mention" required/>
+                    <div [hidden]="!(editForm.controls.mention?.dirty && editForm.controls.mention?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.mention?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentDiploma.graduationDate" for="field_graduationDate">Graduation Date</label>
+                    <div class="input-group">
+                        <input id="field_graduationDate" type="text" class="form-control" name="graduationDate" ngbDatepicker  #graduationDateDp="ngbDatepicker" [(ngModel)]="studentDiploma.graduationDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="graduationDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.graduationDate?.dirty && editForm.controls.graduationDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.graduationDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentDiploma.student" for="field_student">Student</label>
+                    <select class="form-control" id="field_student" name="student" [(ngModel)]="studentDiploma.studentId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="studentOption.id" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentDiploma.diploma" for="field_diploma">Diploma</label>
+                    <select class="form-control" id="field_diploma" name="diploma" [(ngModel)]="studentDiploma.diplomaId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="diplomaOption.id" *ngFor="let diplomaOption of diplomas; trackBy: trackDiplomaById">{{diplomaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentDiploma.schoolSchoolYear" for="field_schoolSchoolYear">School School Year</label>
+                    <select class="form-control" id="field_schoolSchoolYear" name="schoolSchoolYear" [(ngModel)]="studentDiploma.schoolSchoolYearId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="schoolSchoolYearOption.id" *ngFor="let schoolSchoolYearOption of schoolschoolyears; trackBy: trackSchoolSchoolYearById">{{schoolSchoolYearOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

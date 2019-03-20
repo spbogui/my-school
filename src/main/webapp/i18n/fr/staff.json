@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "staff": {
+            "home": {
+                "title": "Staff",
+                "createLabel": "Créer un nouveau Staff",
+                "createOrEditLabel": "Créer ou éditer un Staff",
+                "search": "Recherche pour Staff"
+            },
+            "created": "Un nouveau Staff a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Staff avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Staff avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Staff {{ id }} ?"
+            },
+            "detail": {
+                "title": "Staff"
+            },
+            "employee": "Employee",
+            "staffJob": "Staff Job"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "name": "Room",
+    "fields": [
+        {
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "roomType",
+            "otherEntityRelationshipName": "room",
+            "relationshipName": "roomType",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223306",
+    "entityTableName": "room",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

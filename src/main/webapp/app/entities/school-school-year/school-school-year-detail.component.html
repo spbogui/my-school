@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="schoolSchoolYear">
+            <h2><span jhiTranslate="mySchoolApp.schoolSchoolYear.detail.title">School School Year</span> {{schoolSchoolYear.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.schoolSchoolYear.description">Description</span></dt>
+                <dd>
+                    <span>{{schoolSchoolYear.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.schoolSchoolYear.schoolName">School Name</span></dt>
+                <dd>
+                    <div *ngIf="schoolSchoolYear.schoolNameId">
+                        <a [routerLink]="['/school', schoolSchoolYear.schoolNameId, 'view']">{{schoolSchoolYear.schoolNameId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.schoolSchoolYear.schoolYearlabel">School Yearlabel</span></dt>
+                <dd>
+                    <div *ngIf="schoolSchoolYear.schoolYearlabelId">
+                        <a [routerLink]="['/school-year', schoolSchoolYear.schoolYearlabelId, 'view']">{{schoolSchoolYear.schoolYearlabelId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/school-school-year', schoolSchoolYear.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

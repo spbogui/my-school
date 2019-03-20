@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Program.
+    -->
+    <changeSet id="20190320223308-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="subject_id"
+                                 baseTableName="program"
+                                 constraintName="fk_program_subject_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subject"/>
+
+        <addForeignKeyConstraint baseColumnNames="class_room_id"
+                                 baseTableName="program"
+                                 constraintName="fk_program_class_room_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="class_room"/>
+
+        <addForeignKeyConstraint baseColumnNames="room_id"
+                                 baseTableName="program"
+                                 constraintName="fk_program_room_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="room"/>
+
+        <addForeignKeyConstraint baseColumnNames="days_id"
+                                 baseTableName="program"
+                                 constraintName="fk_program_days_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="days"/>
+
+        <addForeignKeyConstraint baseColumnNames="school_year_id"
+                                 baseTableName="program"
+                                 constraintName="fk_program_school_year_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="school_year"/>
+
+    </changeSet>
+</databaseChangeLog>

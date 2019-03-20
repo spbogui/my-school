@@ -1,0 +1,25 @@
+{
+    "mySchoolApp": {
+        "teacherSubjectSchoolYear": {
+            "home": {
+                "title": "Teacher Subject School Years",
+                "createLabel": "Create a new Teacher Subject School Year",
+                "createOrEditLabel": "Create or edit a Teacher Subject School Year",
+                "search": "Search for Teacher Subject School Year"
+            },
+            "created": "A new Teacher Subject School Year is created with identifier {{ param }}",
+            "updated": "A Teacher Subject School Year is updated with identifier {{ param }}",
+            "deleted": "A Teacher Subject School Year is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Teacher Subject School Year {{ id }}?"
+            },
+            "detail": {
+                "title": "Teacher Subject School Year"
+            },
+            "isPrincipal": "Is Principal",
+            "actor": "Actor",
+            "teacher": "Teacher",
+            "schoolSchoolYear": "School School Year"
+        }
+    }
+}

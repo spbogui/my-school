@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "classRoom": {
+            "home": {
+                "title": "ClassRooms",
+                "createLabel": "Créer un nouveau Class Room",
+                "createOrEditLabel": "Créer ou éditer un Class Room",
+                "search": "Recherche pour Class Room"
+            },
+            "created": "Un nouveau Class Room a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Class Room avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Class Room avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Class Room {{ id }} ?"
+            },
+            "detail": {
+                "title": "Class Room"
+            },
+            "name": "Name",
+            "level": "Level"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "mySchoolApp": {
+        "permissionAgreement": {
+            "home": {
+                "title": "PermissionAgreements",
+                "createLabel": "Créer un nouveau Permission Agreement",
+                "createOrEditLabel": "Créer ou éditer un Permission Agreement",
+                "search": "Recherche pour Permission Agreement"
+            },
+            "created": "Un nouveau Permission Agreement a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Permission Agreement avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Permission Agreement avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Permission Agreement {{ id }} ?"
+            },
+            "detail": {
+                "title": "Permission Agreement"
+            },
+            "permissionAllowed": "Permission Allowed",
+            "allowanceDate": "Allowance Date",
+            "permissionStartDate": "Permission Start Date",
+            "permissionEndDate": "Permission End Date",
+            "returnDate": "Return Date",
+            "effectiveReturnDate": "Effective Return Date",
+            "memo": "Memo",
+            "askingPermission": "Asking Permission"
+        }
+    }
+}

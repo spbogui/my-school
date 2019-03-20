@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="program">
+            <h2><span jhiTranslate="mySchoolApp.program.detail.title">Program</span> {{program.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.program.startHour">Start Hour</span></dt>
+                <dd>
+                    <span>{{program.startHour}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.program.endHour">End Hour</span></dt>
+                <dd>
+                    <span>{{program.endHour}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.program.subject">Subject</span></dt>
+                <dd>
+                    <div *ngIf="program.subjectId">
+                        <a [routerLink]="['/subject', program.subjectId, 'view']">{{program.subjectId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.program.classRoom">Class Room</span></dt>
+                <dd>
+                    <div *ngIf="program.classRoomId">
+                        <a [routerLink]="['/class-room', program.classRoomId, 'view']">{{program.classRoomId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.program.room">Room</span></dt>
+                <dd>
+                    <div *ngIf="program.roomId">
+                        <a [routerLink]="['/room', program.roomId, 'view']">{{program.roomId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.program.days">Days</span></dt>
+                <dd>
+                    <div *ngIf="program.daysId">
+                        <a [routerLink]="['/days', program.daysId, 'view']">{{program.daysId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.program.schoolYear">School Year</span></dt>
+                <dd>
+                    <div *ngIf="program.schoolYearId">
+                        <a [routerLink]="['/school-year', program.schoolYearId, 'view']">{{program.schoolYearId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/program', program.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

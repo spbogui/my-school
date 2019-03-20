@@ -1,0 +1,99 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-class-session-heading" jhiTranslate="mySchoolApp.classSession.home.createOrEditLabel">Create or edit a Class Session</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!classSession.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="classSession.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.classSession.startHour" for="field_startHour">Start Hour</label>
+                    <div class="d-flex">
+                        <input id="field_startHour" type="datetime-local" class="form-control" name="startHour" [(ngModel)]="startHour" placeholder="YYYY-MM-DD HH:mm"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.startHour?.dirty && editForm.controls.startHour?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.startHour?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.startHour?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.classSession.endHour" for="field_endHour">End Hour</label>
+                    <div class="d-flex">
+                        <input id="field_endHour" type="datetime-local" class="form-control" name="endHour" [(ngModel)]="endHour" placeholder="YYYY-MM-DD HH:mm"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.endHour?.dirty && editForm.controls.endHour?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.endHour?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.endHour?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.classSession.detail" for="field_detail">Detail</label>
+                    <input type="text" class="form-control" name="detail" id="field_detail"
+                        [(ngModel)]="classSession.detail" required/>
+                    <div [hidden]="!(editForm.controls.detail?.dirty && editForm.controls.detail?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.detail?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.classSession.createdAt" for="field_createdAt">Created At</label>
+                    <div class="input-group">
+                        <input id="field_createdAt" type="text" class="form-control" name="createdAt" ngbDatepicker  #createdAtDp="ngbDatepicker" [(ngModel)]="classSession.createdAt"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="createdAtDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.createdAt?.dirty && editForm.controls.createdAt?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createdAt?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.classSession.classSessionType" for="field_classSessionType">Class Session Type</label>
+                    <select class="form-control" id="field_classSessionType" name="classSessionType" [(ngModel)]="classSession.classSessionTypeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="classSessionTypeOption.id" *ngFor="let classSessionTypeOption of classsessiontypes; trackBy: trackClassSessionTypeById">{{classSessionTypeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.classSession.program" for="field_program">Program</label>
+                    <select class="form-control" id="field_program" name="program" [(ngModel)]="classSession.programId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="programOption.id" *ngFor="let programOption of programs; trackBy: trackProgramById">{{programOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+    "mySchoolApp": {
+        "studentDiploma": {
+            "home": {
+                "title": "Student Diplomas",
+                "createLabel": "Create a new Student Diploma",
+                "createOrEditLabel": "Create or edit a Student Diploma",
+                "search": "Search for Student Diploma"
+            },
+            "created": "A new Student Diploma is created with identifier {{ param }}",
+            "updated": "A Student Diploma is updated with identifier {{ param }}",
+            "deleted": "A Student Diploma is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Student Diploma {{ id }}?"
+            },
+            "detail": {
+                "title": "Student Diploma"
+            },
+            "mention": "Mention",
+            "graduationDate": "Graduation Date",
+            "student": "Student",
+            "diploma": "Diploma",
+            "schoolSchoolYear": "School School Year"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "mySchoolApp": {
+        "studentMissingSession": {
+            "home": {
+                "title": "StudentMissingSessions",
+                "createLabel": "Créer un nouveau Student Missing Session",
+                "createOrEditLabel": "Créer ou éditer un Student Missing Session",
+                "search": "Recherche pour Student Missing Session"
+            },
+            "created": "Un nouveau Student Missing Session a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Student Missing Session avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Student Missing Session avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Student Missing Session {{ id }} ?"
+            },
+            "detail": {
+                "title": "Student Missing Session"
+            },
+            "isJustified": "Is Justified",
+            "classSession": "Class Session",
+            "student": "Student"
+        }
+    }
+}

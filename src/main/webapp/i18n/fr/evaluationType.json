@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "evaluationType": {
+            "home": {
+                "title": "EvaluationTypes",
+                "createLabel": "Créer un nouveau Evaluation Type",
+                "createOrEditLabel": "Créer ou éditer un Evaluation Type",
+                "search": "Recherche pour Evaluation Type"
+            },
+            "created": "Un nouveau Evaluation Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Evaluation Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Evaluation Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Evaluation Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Evaluation Type"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

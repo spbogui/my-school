@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-actor-identifier-number-heading" jhiTranslate="mySchoolApp.actorIdentifierNumber.home.createOrEditLabel">Create or edit a Actor Identifier Number</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!actorIdentifierNumber.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="actorIdentifierNumber.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorIdentifierNumber.identifier" for="field_identifier">Identifier</label>
+                    <input type="text" class="form-control" name="identifier" id="field_identifier"
+                        [(ngModel)]="actorIdentifierNumber.identifier" required/>
+                    <div [hidden]="!(editForm.controls.identifier?.dirty && editForm.controls.identifier?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.identifier?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorIdentifierNumber.identifierType" for="field_identifierType">Identifier Type</label>
+                    <select class="form-control" id="field_identifierType" name="identifierType" [(ngModel)]="actorIdentifierNumber.identifierTypeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="identifierTypeOption.id" *ngFor="let identifierTypeOption of identifiertypes; trackBy: trackIdentifierTypeById">{{identifierTypeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorIdentifierNumber.actor" for="field_actor">Actor</label>
+                    <select class="form-control" id="field_actor" name="actor" [(ngModel)]="actorIdentifierNumber.actorId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="actorOption.id" *ngFor="let actorOption of actors; trackBy: trackActorById">{{actorOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

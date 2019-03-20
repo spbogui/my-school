@@ -1,0 +1,26 @@
+{
+    "mySchoolApp": {
+        "studentEvaluation": {
+            "home": {
+                "title": "StudentEvaluations",
+                "createLabel": "Créer un nouveau Student Evaluation",
+                "createOrEditLabel": "Créer ou éditer un Student Evaluation",
+                "search": "Recherche pour Student Evaluation"
+            },
+            "created": "Un nouveau Student Evaluation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Student Evaluation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Student Evaluation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Student Evaluation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Student Evaluation"
+            },
+            "grade": "Grade",
+            "actor": "Actor",
+            "evaluation": "Evaluation",
+            "evaluationMode": "Evaluation Mode",
+            "subject": "Subject"
+        }
+    }
+}
