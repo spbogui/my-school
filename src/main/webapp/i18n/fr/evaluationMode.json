@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "evaluationMode": {
+            "home": {
+                "title": "EvaluationModes",
+                "createLabel": "Créer un nouveau Evaluation Mode",
+                "createOrEditLabel": "Créer ou éditer un Evaluation Mode",
+                "search": "Recherche pour Evaluation Mode"
+            },
+            "created": "Un nouveau Evaluation Mode a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Evaluation Mode avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Evaluation Mode avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Evaluation Mode {{ id }} ?"
+            },
+            "detail": {
+                "title": "Evaluation Mode"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

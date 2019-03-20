@@ -1,0 +1,31 @@
+{
+    "mySchoolApp": {
+        "address": {
+            "home": {
+                "title": "Addresses",
+                "createLabel": "Create a new Address",
+                "createOrEditLabel": "Create or edit a Address",
+                "search": "Search for Address"
+            },
+            "created": "A new Address is created with identifier {{ param }}",
+            "updated": "A Address is updated with identifier {{ param }}",
+            "deleted": "A Address is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Address {{ id }}?"
+            },
+            "detail": {
+                "title": "Address"
+            },
+            "mobilePhone": "Mobile Phone",
+            "officePhone": "Office Phone",
+            "homePhone": "Home Phone",
+            "email": "Email",
+            "postalAddress": "Postal Address",
+            "town": "Town",
+            "region": "Region",
+            "village": "Village",
+            "isPreferred": "Is Preferred",
+            "actor": "Actor"
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Level",
+    "fields": [
+        {
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "shortForm",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "level",
+            "otherEntityRelationshipName": "level",
+            "relationshipName": "parentLevel",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "cycle",
+            "otherEntityRelationshipName": "level",
+            "relationshipName": "cycle",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223301",
+    "entityTableName": "level",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

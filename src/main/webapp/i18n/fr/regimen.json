@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "regimen": {
+            "home": {
+                "title": "Regimen",
+                "createLabel": "Créer un nouveau Regimen",
+                "createOrEditLabel": "Créer ou éditer un Regimen",
+                "search": "Recherche pour Regimen"
+            },
+            "created": "Un nouveau Regimen a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Regimen avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Regimen avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Regimen {{ id }} ?"
+            },
+            "detail": {
+                "title": "Regimen"
+            },
+            "regimenLabel": "Regimen Label",
+            "description": "Description"
+        }
+    }
+}

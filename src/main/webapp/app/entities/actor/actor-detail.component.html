@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="actor">
+            <h2><span jhiTranslate="mySchoolApp.actor.detail.title">Actor</span> {{actor.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.actor.birthDate">Birth Date</span></dt>
+                <dd>
+                    <span>{{actor.birthDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actor.birthPlace">Birth Place</span></dt>
+                <dd>
+                    <span>{{actor.birthPlace}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actor.gender">Gender</span></dt>
+                <dd>
+                    <span>{{actor.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actor.country">Country</span></dt>
+                <dd>
+                    <div *ngIf="actor.countryId">
+                        <a [routerLink]="['/country', actor.countryId, 'view']">{{actor.countryId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/actor', actor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

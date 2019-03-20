@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-student-missing-session-heading" jhiTranslate="mySchoolApp.studentMissingSession.home.createOrEditLabel">Create or edit a Student Missing Session</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!studentMissingSession.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="studentMissingSession.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentMissingSession.isJustified" for="field_isJustified">Is Justified</label>
+                    <input type="checkbox" class="form-control" name="isJustified" id="field_isJustified"
+                        [(ngModel)]="studentMissingSession.isJustified" />
+                    <div [hidden]="!(editForm.controls.isJustified?.dirty && editForm.controls.isJustified?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.isJustified?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentMissingSession.classSession" for="field_classSession">Class Session</label>
+                    <select class="form-control" id="field_classSession" name="classSession" [(ngModel)]="studentMissingSession.classSessionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="classSessionOption.id" *ngFor="let classSessionOption of classsessions; trackBy: trackClassSessionById">{{classSessionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.studentMissingSession.student" for="field_student">Student</label>
+                    <select class="form-control" id="field_student" name="student" [(ngModel)]="studentMissingSession.studentId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="studentOption.id" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+{
+    "name": "ActorRelationship",
+    "fields": [
+        {
+            "fieldName": "isActive",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "responsible",
+            "otherEntityRelationshipName": "actorRelationship",
+            "relationshipName": "responsible",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "student",
+            "otherEntityRelationshipName": "actorRelationship",
+            "relationshipName": "student",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "relationshipType",
+            "otherEntityRelationshipName": "actorRelationship",
+            "relationshipName": "relationshipType",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223324",
+    "entityTableName": "actor_relationship",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

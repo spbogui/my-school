@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-actor-name-heading" jhiTranslate="mySchoolApp.actorName.home.createOrEditLabel">Create or edit a Actor Name</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!actorName.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="actorName.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorName.civility" for="field_civility">Civility</label>
+                    <input type="text" class="form-control" name="civility" id="field_civility"
+                        [(ngModel)]="actorName.civility" required/>
+                    <div [hidden]="!(editForm.controls.civility?.dirty && editForm.controls.civility?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.civility?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorName.familyName" for="field_familyName">Family Name</label>
+                    <input type="text" class="form-control" name="familyName" id="field_familyName"
+                        [(ngModel)]="actorName.familyName" required/>
+                    <div [hidden]="!(editForm.controls.familyName?.dirty && editForm.controls.familyName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.familyName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorName.givenName1" for="field_givenName1">Given Name 1</label>
+                    <input type="text" class="form-control" name="givenName1" id="field_givenName1"
+                        [(ngModel)]="actorName.givenName1" required/>
+                    <div [hidden]="!(editForm.controls.givenName1?.dirty && editForm.controls.givenName1?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.givenName1?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorName.givenName2" for="field_givenName2">Given Name 2</label>
+                    <input type="text" class="form-control" name="givenName2" id="field_givenName2"
+                        [(ngModel)]="actorName.givenName2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorName.givenName3" for="field_givenName3">Given Name 3</label>
+                    <input type="text" class="form-control" name="givenName3" id="field_givenName3"
+                        [(ngModel)]="actorName.givenName3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorName.maidenName" for="field_maidenName">Maiden Name</label>
+                    <input type="text" class="form-control" name="maidenName" id="field_maidenName"
+                        [(ngModel)]="actorName.maidenName" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorName.actor" for="field_actor">Actor</label>
+                    <select class="form-control" id="field_actor" name="actor" [(ngModel)]="actorName.actorId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="actorOption.id" *ngFor="let actorOption of actors; trackBy: trackActorById">{{actorOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

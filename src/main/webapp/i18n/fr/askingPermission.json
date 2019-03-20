@@ -1,0 +1,26 @@
+{
+    "mySchoolApp": {
+        "askingPermission": {
+            "home": {
+                "title": "AskingPermissions",
+                "createLabel": "Créer un nouveau Asking Permission",
+                "createOrEditLabel": "Créer ou éditer un Asking Permission",
+                "search": "Recherche pour Asking Permission"
+            },
+            "created": "Un nouveau Asking Permission a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Asking Permission avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Asking Permission avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Asking Permission {{ id }} ?"
+            },
+            "detail": {
+                "title": "Asking Permission"
+            },
+            "askingDate": "Asking Date",
+            "numberOfDay": "Number Of Day",
+            "reason": "Reason",
+            "schoolSchoolYear": "School School Year",
+            "student": "Student"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "mySchoolApp": {
+        "salary": {
+            "home": {
+                "title": "Salaries",
+                "createLabel": "Créer un nouveau Salary",
+                "createOrEditLabel": "Créer ou éditer un Salary",
+                "search": "Recherche pour Salary"
+            },
+            "created": "Un nouveau Salary a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Salary avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Salary avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Salary {{ id }} ?"
+            },
+            "detail": {
+                "title": "Salary"
+            },
+            "amount": "Amount",
+            "paymentDate": "Payment Date",
+            "createdAt": "Created At",
+            "memo": "Memo",
+            "employee": "Employee"
+        }
+    }
+}

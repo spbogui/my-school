@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "periodType": {
+            "home": {
+                "title": "PeriodTypes",
+                "createLabel": "Créer un nouveau Period Type",
+                "createOrEditLabel": "Créer ou éditer un Period Type",
+                "search": "Recherche pour Period Type"
+            },
+            "created": "Un nouveau Period Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Period Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Period Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Period Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Period Type"
+            },
+            "periodLabel": "Period Label",
+            "description": "Description"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "evaluationType": {
+            "home": {
+                "title": "Evaluation Types",
+                "createLabel": "Create a new Evaluation Type",
+                "createOrEditLabel": "Create or edit a Evaluation Type",
+                "search": "Search for Evaluation Type"
+            },
+            "created": "A new Evaluation Type is created with identifier {{ param }}",
+            "updated": "A Evaluation Type is updated with identifier {{ param }}",
+            "deleted": "A Evaluation Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Evaluation Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Evaluation Type"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

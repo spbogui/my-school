@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity TeacherMissingSession.
+    -->
+    <changeSet id="20190320223339-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="class_session_id"
+                                 baseTableName="teacher_missing_session"
+                                 constraintName="fk_teacher_missing_session_class_session_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="class_session"/>
+
+        <addForeignKeyConstraint baseColumnNames="student_id"
+                                 baseTableName="teacher_missing_session"
+                                 constraintName="fk_teacher_missing_session_student_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="teacher"/>
+
+    </changeSet>
+</databaseChangeLog>

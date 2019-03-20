@@ -1,0 +1,51 @@
+{
+    "name": "StudentEvaluation",
+    "fields": [
+        {
+            "fieldName": "grade",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "actor",
+            "otherEntityRelationshipName": "studentEvaluation",
+            "relationshipName": "actor",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evaluation",
+            "otherEntityRelationshipName": "studentEvaluation",
+            "relationshipName": "evaluation",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evaluationMode",
+            "otherEntityRelationshipName": "studentEvaluation",
+            "relationshipName": "evaluationMode",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "subject",
+            "otherEntityRelationshipName": "studentEvaluation",
+            "relationshipName": "subject",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223336",
+    "entityTableName": "student_evaluation",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

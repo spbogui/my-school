@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-actor-relationship-heading" jhiTranslate="mySchoolApp.actorRelationship.home.createOrEditLabel">Create or edit a Actor Relationship</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!actorRelationship.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="actorRelationship.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorRelationship.isActive" for="field_isActive">Is Active</label>
+                    <input type="checkbox" class="form-control" name="isActive" id="field_isActive"
+                        [(ngModel)]="actorRelationship.isActive" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorRelationship.responsible" for="field_responsible">Responsible</label>
+                    <select class="form-control" id="field_responsible" name="responsible" [(ngModel)]="actorRelationship.responsibleId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="responsibleOption.id" *ngFor="let responsibleOption of responsibles; trackBy: trackResponsibleById">{{responsibleOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorRelationship.student" for="field_student">Student</label>
+                    <select class="form-control" id="field_student" name="student" [(ngModel)]="actorRelationship.studentId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="studentOption.id" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.actorRelationship.relationshipType" for="field_relationshipType">Relationship Type</label>
+                    <select class="form-control" id="field_relationshipType" name="relationshipType" [(ngModel)]="actorRelationship.relationshipTypeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="relationshipTypeOption.id" *ngFor="let relationshipTypeOption of relationshiptypes; trackBy: trackRelationshipTypeById">{{relationshipTypeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

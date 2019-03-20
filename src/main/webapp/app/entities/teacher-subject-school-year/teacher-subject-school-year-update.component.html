@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-teacher-subject-school-year-heading" jhiTranslate="mySchoolApp.teacherSubjectSchoolYear.home.createOrEditLabel">Create or edit a Teacher Subject School Year</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!teacherSubjectSchoolYear.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="teacherSubjectSchoolYear.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.teacherSubjectSchoolYear.isPrincipal" for="field_isPrincipal">Is Principal</label>
+                    <input type="checkbox" class="form-control" name="isPrincipal" id="field_isPrincipal"
+                        [(ngModel)]="teacherSubjectSchoolYear.isPrincipal" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.teacherSubjectSchoolYear.actor" for="field_actor">Actor</label>
+                    <select class="form-control" id="field_actor" name="actor" [(ngModel)]="teacherSubjectSchoolYear.actorId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="actorOption.id" *ngFor="let actorOption of actors; trackBy: trackActorById">{{actorOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.teacherSubjectSchoolYear.teacher" for="field_teacher">Teacher</label>
+                    <select class="form-control" id="field_teacher" name="teacher" [(ngModel)]="teacherSubjectSchoolYear.teacherId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="teacherOption.id" *ngFor="let teacherOption of teachers; trackBy: trackTeacherById">{{teacherOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.teacherSubjectSchoolYear.schoolSchoolYear" for="field_schoolSchoolYear">School School Year</label>
+                    <select class="form-control" id="field_schoolSchoolYear" name="schoolSchoolYear" [(ngModel)]="teacherSubjectSchoolYear.schoolSchoolYearId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="schoolSchoolYearOption.id" *ngFor="let schoolSchoolYearOption of schoolschoolyears; trackBy: trackSchoolSchoolYearById">{{schoolSchoolYearOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

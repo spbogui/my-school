@@ -1,0 +1,64 @@
+{
+    "name": "Evaluation",
+    "fields": [
+        {
+            "fieldName": "plannedDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "isDone",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "evaluationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "duration",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evaluationType",
+            "otherEntityRelationshipName": "evaluation",
+            "relationshipName": "evaluationType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "schoolSchoolYear",
+            "otherEntityRelationshipName": "evaluation",
+            "relationshipName": "schoolSchoolYear",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "period",
+            "otherEntityRelationshipName": "evaluation",
+            "relationshipName": "period",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "classRoom",
+            "otherEntityRelationshipName": "evaluation",
+            "relationshipName": "classRoom",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190320223335",
+    "entityTableName": "evaluation",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

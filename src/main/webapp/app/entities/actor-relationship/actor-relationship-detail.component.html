@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="actorRelationship">
+            <h2><span jhiTranslate="mySchoolApp.actorRelationship.detail.title">Actor Relationship</span> {{actorRelationship.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.actorRelationship.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{actorRelationship.isActive}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actorRelationship.responsible">Responsible</span></dt>
+                <dd>
+                    <div *ngIf="actorRelationship.responsibleId">
+                        <a [routerLink]="['/responsible', actorRelationship.responsibleId, 'view']">{{actorRelationship.responsibleId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actorRelationship.student">Student</span></dt>
+                <dd>
+                    <div *ngIf="actorRelationship.studentId">
+                        <a [routerLink]="['/student', actorRelationship.studentId, 'view']">{{actorRelationship.studentId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.actorRelationship.relationshipType">Relationship Type</span></dt>
+                <dd>
+                    <div *ngIf="actorRelationship.relationshipTypeId">
+                        <a [routerLink]="['/relationship-type', actorRelationship.relationshipTypeId, 'view']">{{actorRelationship.relationshipTypeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/actor-relationship', actorRelationship.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

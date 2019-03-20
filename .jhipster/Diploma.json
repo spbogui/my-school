@@ -1,0 +1,41 @@
+{
+    "name": "Diploma",
+    "fields": [
+        {
+            "fieldName": "diplomaLabel",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "cycle",
+            "otherEntityRelationshipName": "diploma",
+            "relationshipName": "cycle",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "diploma",
+            "otherEntityRelationshipName": "diploma",
+            "relationshipName": "parentDiploma",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223302",
+    "entityTableName": "diploma",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ActorRelationship.
+    -->
+    <changeSet id="20190320223324-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="responsible_id"
+                                 baseTableName="actor_relationship"
+                                 constraintName="fk_actor_relationship_responsible_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="responsible"/>
+
+        <addForeignKeyConstraint baseColumnNames="student_id"
+                                 baseTableName="actor_relationship"
+                                 constraintName="fk_actor_relationship_student_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="student"/>
+
+        <addForeignKeyConstraint baseColumnNames="relationship_type_id"
+                                 baseTableName="actor_relationship"
+                                 constraintName="fk_actor_relationship_relationship_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="relationship_type"/>
+
+    </changeSet>
+</databaseChangeLog>

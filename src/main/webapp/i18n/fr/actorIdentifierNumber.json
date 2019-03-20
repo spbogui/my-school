@@ -1,0 +1,24 @@
+{
+    "mySchoolApp": {
+        "actorIdentifierNumber": {
+            "home": {
+                "title": "ActorIdentifierNumbers",
+                "createLabel": "Créer un nouveau Actor Identifier Number",
+                "createOrEditLabel": "Créer ou éditer un Actor Identifier Number",
+                "search": "Recherche pour Actor Identifier Number"
+            },
+            "created": "Un nouveau Actor Identifier Number a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Actor Identifier Number avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Actor Identifier Number avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Actor Identifier Number {{ id }} ?"
+            },
+            "detail": {
+                "title": "Actor Identifier Number"
+            },
+            "identifier": "Identifier",
+            "identifierType": "Identifier Type",
+            "actor": "Actor"
+        }
+    }
+}

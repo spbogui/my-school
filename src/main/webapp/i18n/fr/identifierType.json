@@ -1,0 +1,22 @@
+{
+    "mySchoolApp": {
+        "identifierType": {
+            "home": {
+                "title": "IdentifierTypes",
+                "createLabel": "Créer un nouveau Identifier Type",
+                "createOrEditLabel": "Créer ou éditer un Identifier Type",
+                "search": "Recherche pour Identifier Type"
+            },
+            "created": "Un nouveau Identifier Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Identifier Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Identifier Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Identifier Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Identifier Type"
+            },
+            "name": "Name"
+        }
+    }
+}

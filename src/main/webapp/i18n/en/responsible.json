@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "responsible": {
+            "home": {
+                "title": "Responsibles",
+                "createLabel": "Create a new Responsible",
+                "createOrEditLabel": "Create or edit a Responsible",
+                "search": "Search for Responsible"
+            },
+            "created": "A new Responsible is created with identifier {{ param }}",
+            "updated": "A Responsible is updated with identifier {{ param }}",
+            "deleted": "A Responsible is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Responsible {{ id }}?"
+            },
+            "detail": {
+                "title": "Responsible"
+            },
+            "profession": "Profession",
+            "actor": "Actor"
+        }
+    }
+}

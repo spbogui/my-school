@@ -1,0 +1,55 @@
+{
+    "name": "PermissionAgreement",
+    "fields": [
+        {
+            "fieldName": "permissionAllowed",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "allowanceDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "permissionStartDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "permissionEndDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "returnDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "effectiveReturnDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "memo",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "askingPermission",
+            "otherEntityRelationshipName": "permissionAgreement",
+            "relationshipName": "askingPermission",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190320223341",
+    "entityTableName": "permission_agreement",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,98 @@
+{
+    "name": "Enrolment",
+    "fields": [
+        {
+            "fieldName": "enrolmentDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "regimenRate",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "repeating",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "modernLanguage1",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "modernLanguage2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "exemption",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "withInsurance",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "schoolYear",
+            "otherEntityRelationshipName": "enrolment",
+            "relationshipName": "schoolYear",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "actor",
+            "otherEntityRelationshipName": "enrolment",
+            "relationshipName": "actor",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "classRoom",
+            "otherEntityRelationshipName": "enrolment",
+            "relationshipName": "classRoom",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "regimen",
+            "otherEntityRelationshipName": "enrolment",
+            "relationshipName": "regimen",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "school",
+            "otherEntityRelationshipName": "enrolment",
+            "relationshipName": "previousSchool",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "classRoom",
+            "otherEntityRelationshipName": "enrolment",
+            "relationshipName": "previousClass",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223321",
+    "entityTableName": "enrolment",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

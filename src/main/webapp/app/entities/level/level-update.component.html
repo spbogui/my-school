@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-level-heading" jhiTranslate="mySchoolApp.level.home.createOrEditLabel">Create or edit a Level</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!level.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="level.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.level.label" for="field_label">Label</label>
+                    <input type="text" class="form-control" name="label" id="field_label"
+                        [(ngModel)]="level.label" required/>
+                    <div [hidden]="!(editForm.controls.label?.dirty && editForm.controls.label?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.label?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.level.shortForm" for="field_shortForm">Short Form</label>
+                    <input type="text" class="form-control" name="shortForm" id="field_shortForm"
+                        [(ngModel)]="level.shortForm" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.level.parentLevel" for="field_parentLevel">Parent Level</label>
+                    <select class="form-control" id="field_parentLevel" name="parentLevel" [(ngModel)]="level.parentLevel" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="levelOption.id === level.parentLevel?.id ? level.parentLevel : levelOption" *ngFor="let levelOption of levels; trackBy: trackLevelById">{{levelOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.level.cycle" for="field_cycle">Cycle</label>
+                    <select class="form-control" id="field_cycle" name="cycle" [(ngModel)]="level.cycle" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cycleOption.id === level.cycle?.id ? level.cycle : cycleOption" *ngFor="let cycleOption of cycles; trackBy: trackCycleById">{{cycleOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="studentEvaluation">
+            <h2><span jhiTranslate="mySchoolApp.studentEvaluation.detail.title">Student Evaluation</span> {{studentEvaluation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.studentEvaluation.grade">Grade</span></dt>
+                <dd>
+                    <span>{{studentEvaluation.grade}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.studentEvaluation.actor">Actor</span></dt>
+                <dd>
+                    <div *ngIf="studentEvaluation.actorId">
+                        <a [routerLink]="['/actor', studentEvaluation.actorId, 'view']">{{studentEvaluation.actorId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.studentEvaluation.evaluation">Evaluation</span></dt>
+                <dd>
+                    <div *ngIf="studentEvaluation.evaluationId">
+                        <a [routerLink]="['/evaluation', studentEvaluation.evaluationId, 'view']">{{studentEvaluation.evaluationId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.studentEvaluation.evaluationMode">Evaluation Mode</span></dt>
+                <dd>
+                    <div *ngIf="studentEvaluation.evaluationModeId">
+                        <a [routerLink]="['/evaluation-mode', studentEvaluation.evaluationModeId, 'view']">{{studentEvaluation.evaluationModeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.studentEvaluation.subject">Subject</span></dt>
+                <dd>
+                    <div *ngIf="studentEvaluation.subjectId">
+                        <a [routerLink]="['/subject', studentEvaluation.subjectId, 'view']">{{studentEvaluation.subjectId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/student-evaluation', studentEvaluation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "evaluationMode": {
+            "home": {
+                "title": "Evaluation Modes",
+                "createLabel": "Create a new Evaluation Mode",
+                "createOrEditLabel": "Create or edit a Evaluation Mode",
+                "search": "Search for Evaluation Mode"
+            },
+            "created": "A new Evaluation Mode is created with identifier {{ param }}",
+            "updated": "A Evaluation Mode is updated with identifier {{ param }}",
+            "deleted": "A Evaluation Mode is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Evaluation Mode {{ id }}?"
+            },
+            "detail": {
+                "title": "Evaluation Mode"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

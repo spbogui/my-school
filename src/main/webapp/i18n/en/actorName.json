@@ -1,0 +1,28 @@
+{
+    "mySchoolApp": {
+        "actorName": {
+            "home": {
+                "title": "Actor Names",
+                "createLabel": "Create a new Actor Name",
+                "createOrEditLabel": "Create or edit a Actor Name",
+                "search": "Search for Actor Name"
+            },
+            "created": "A new Actor Name is created with identifier {{ param }}",
+            "updated": "A Actor Name is updated with identifier {{ param }}",
+            "deleted": "A Actor Name is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Actor Name {{ id }}?"
+            },
+            "detail": {
+                "title": "Actor Name"
+            },
+            "civility": "Civility",
+            "familyName": "Family Name",
+            "givenName1": "Given Name 1",
+            "givenName2": "Given Name 2",
+            "givenName3": "Given Name 3",
+            "maidenName": "Maiden Name",
+            "actor": "Actor"
+        }
+    }
+}

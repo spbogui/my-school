@@ -1,0 +1,26 @@
+{
+    "mySchoolApp": {
+        "studentDiploma": {
+            "home": {
+                "title": "StudentDiplomas",
+                "createLabel": "Créer un nouveau Student Diploma",
+                "createOrEditLabel": "Créer ou éditer un Student Diploma",
+                "search": "Recherche pour Student Diploma"
+            },
+            "created": "Un nouveau Student Diploma a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Student Diploma avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Student Diploma avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Student Diploma {{ id }} ?"
+            },
+            "detail": {
+                "title": "Student Diploma"
+            },
+            "mention": "Mention",
+            "graduationDate": "Graduation Date",
+            "student": "Student",
+            "diploma": "Diploma",
+            "schoolSchoolYear": "School School Year"
+        }
+    }
+}

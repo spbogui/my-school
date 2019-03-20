@@ -1,0 +1,27 @@
+{
+    "mySchoolApp": {
+        "leaveHoliDay": {
+            "home": {
+                "title": "Leave Holi Days",
+                "createLabel": "Create a new Leave Holi Day",
+                "createOrEditLabel": "Create or edit a Leave Holi Day",
+                "search": "Search for Leave Holi Day"
+            },
+            "created": "A new Leave Holi Day is created with identifier {{ param }}",
+            "updated": "A Leave Holi Day is updated with identifier {{ param }}",
+            "deleted": "A Leave Holi Day is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Leave Holi Day {{ id }}?"
+            },
+            "detail": {
+                "title": "Leave Holi Day"
+            },
+            "label": "Label",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "memo": "Memo",
+            "createdAt": "Created At",
+            "schoolYear": "School Year"
+        }
+    }
+}

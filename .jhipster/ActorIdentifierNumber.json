@@ -1,0 +1,37 @@
+{
+    "name": "ActorIdentifierNumber",
+    "fields": [
+        {
+            "fieldName": "identifier",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "identifierType",
+            "otherEntityRelationshipName": "actorIdentifierNumber",
+            "relationshipName": "identifierType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "actor",
+            "otherEntityRelationshipName": "actorIdentifierNumber",
+            "relationshipName": "actor",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223316",
+    "entityTableName": "actor_identifier_number",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

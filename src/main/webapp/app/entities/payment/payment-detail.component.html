@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="payment">
+            <h2><span jhiTranslate="mySchoolApp.payment.detail.title">Payment</span> {{payment.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.payment.amount">Amount</span></dt>
+                <dd>
+                    <span>{{payment.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.payment.paymentDate">Payment Date</span></dt>
+                <dd>
+                    <span>{{payment.paymentDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.payment.actor">Actor</span></dt>
+                <dd>
+                    <div *ngIf="payment.actorId">
+                        <a [routerLink]="['/actor', payment.actorId, 'view']">{{payment.actorId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.payment.rubric">Rubric</span></dt>
+                <dd>
+                    <div *ngIf="payment.rubricId">
+                        <a [routerLink]="['/rubric', payment.rubricId, 'view']">{{payment.rubricId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/payment', payment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

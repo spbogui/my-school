@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-school-year-heading" jhiTranslate="mySchoolApp.schoolYear.home.createOrEditLabel">Create or edit a School Year</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!schoolYear.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="schoolYear.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.schoolYear.schoolYearlabel" for="field_schoolYearlabel">School Yearlabel</label>
+                    <input type="text" class="form-control" name="schoolYearlabel" id="field_schoolYearlabel"
+                        [(ngModel)]="schoolYear.schoolYearlabel" required/>
+                    <div [hidden]="!(editForm.controls.schoolYearlabel?.dirty && editForm.controls.schoolYearlabel?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.schoolYearlabel?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.schoolYear.courseStartDate" for="field_courseStartDate">Course Start Date</label>
+                    <div class="input-group">
+                        <input id="field_courseStartDate" type="text" class="form-control" name="courseStartDate" ngbDatepicker  #courseStartDateDp="ngbDatepicker" [(ngModel)]="schoolYear.courseStartDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="courseStartDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.courseStartDate?.dirty && editForm.controls.courseStartDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.courseStartDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.schoolYear.courseEndDate" for="field_courseEndDate">Course End Date</label>
+                    <div class="input-group">
+                        <input id="field_courseEndDate" type="text" class="form-control" name="courseEndDate" ngbDatepicker  #courseEndDateDp="ngbDatepicker" [(ngModel)]="schoolYear.courseEndDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="courseEndDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.courseEndDate?.dirty && editForm.controls.courseEndDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.courseEndDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.schoolYear.startDate" for="field_startDate">Start Date</label>
+                    <div class="input-group">
+                        <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker  #startDateDp="ngbDatepicker" [(ngModel)]="schoolYear.startDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.startDate?.dirty && editForm.controls.startDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.startDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.schoolYear.endDate" for="field_endDate">End Date</label>
+                    <div class="input-group">
+                        <input id="field_endDate" type="text" class="form-control" name="endDate" ngbDatepicker  #endDateDp="ngbDatepicker" [(ngModel)]="schoolYear.endDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.endDate?.dirty && editForm.controls.endDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.endDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.schoolYear.isBlankYear" for="field_isBlankYear">Is Blank Year</label>
+                    <input type="checkbox" class="form-control" name="isBlankYear" id="field_isBlankYear"
+                        [(ngModel)]="schoolYear.isBlankYear" />
+                    <div [hidden]="!(editForm.controls.isBlankYear?.dirty && editForm.controls.isBlankYear?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.isBlankYear?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

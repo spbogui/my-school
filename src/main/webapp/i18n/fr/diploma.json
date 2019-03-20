@@ -1,0 +1,25 @@
+{
+    "mySchoolApp": {
+        "diploma": {
+            "home": {
+                "title": "Diplomas",
+                "createLabel": "Créer un nouveau Diploma",
+                "createOrEditLabel": "Créer ou éditer un Diploma",
+                "search": "Recherche pour Diploma"
+            },
+            "created": "Un nouveau Diploma a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Diploma avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Diploma avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Diploma {{ id }} ?"
+            },
+            "detail": {
+                "title": "Diploma"
+            },
+            "diplomaLabel": "Diploma Label",
+            "description": "Description",
+            "cycle": "Cycle",
+            "parentDiploma": "Parent Diploma"
+        }
+    }
+}

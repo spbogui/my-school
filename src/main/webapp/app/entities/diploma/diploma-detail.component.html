@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="diploma">
+            <h2><span jhiTranslate="mySchoolApp.diploma.detail.title">Diploma</span> {{diploma.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.diploma.diplomaLabel">Diploma Label</span></dt>
+                <dd>
+                    <span>{{diploma.diplomaLabel}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.diploma.description">Description</span></dt>
+                <dd>
+                    <span>{{diploma.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.diploma.cycle">Cycle</span></dt>
+                <dd>
+                    <div *ngIf="diploma.cycleId">
+                        <a [routerLink]="['/cycle', diploma.cycleId, 'view']">{{diploma.cycleId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.diploma.parentDiploma">Parent Diploma</span></dt>
+                <dd>
+                    <div *ngIf="diploma.parentDiplomaId">
+                        <a [routerLink]="['/diploma', diploma.parentDiplomaId, 'view']">{{diploma.parentDiplomaId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/diploma', diploma.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

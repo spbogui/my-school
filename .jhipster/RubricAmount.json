@@ -1,0 +1,51 @@
+{
+    "name": "RubricAmount",
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "paymentMethod",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "rubric",
+            "otherEntityRelationshipName": "rubricAmount",
+            "relationshipName": "rubric",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "level",
+            "otherEntityRelationshipName": "rubricAmount",
+            "relationshipName": "level",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "schoolYear",
+            "otherEntityRelationshipName": "rubricAmount",
+            "relationshipName": "schoolYear",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223310",
+    "entityTableName": "rubric_amount",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

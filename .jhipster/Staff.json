@@ -1,0 +1,29 @@
+{
+    "name": "Staff",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "staff",
+            "relationshipName": "employee",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "staffJob",
+            "otherEntityRelationshipName": "staff",
+            "relationshipName": "staffJob"
+        }
+    ],
+    "changelogDate": "20190320223330",
+    "entityTableName": "staff",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

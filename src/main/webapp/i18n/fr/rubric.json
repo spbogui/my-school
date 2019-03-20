@@ -1,0 +1,23 @@
+{
+    "mySchoolApp": {
+        "rubric": {
+            "home": {
+                "title": "Rubrics",
+                "createLabel": "Créer un nouveau Rubric",
+                "createOrEditLabel": "Créer ou éditer un Rubric",
+                "search": "Recherche pour Rubric"
+            },
+            "created": "Un nouveau Rubric a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Rubric avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Rubric avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Rubric {{ id }} ?"
+            },
+            "detail": {
+                "title": "Rubric"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

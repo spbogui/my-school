@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Enrolment.
+    -->
+    <changeSet id="20190320223321-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="school_year_id"
+                                 baseTableName="enrolment"
+                                 constraintName="fk_enrolment_school_year_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="school_year"/>
+
+        <addForeignKeyConstraint baseColumnNames="actor_id"
+                                 baseTableName="enrolment"
+                                 constraintName="fk_enrolment_actor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="actor"/>
+
+        <addForeignKeyConstraint baseColumnNames="class_room_id"
+                                 baseTableName="enrolment"
+                                 constraintName="fk_enrolment_class_room_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="class_room"/>
+
+        <addForeignKeyConstraint baseColumnNames="regimen_id"
+                                 baseTableName="enrolment"
+                                 constraintName="fk_enrolment_regimen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="regimen"/>
+
+        <addForeignKeyConstraint baseColumnNames="previous_school_id"
+                                 baseTableName="enrolment"
+                                 constraintName="fk_enrolment_previous_school_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="school"/>
+
+        <addForeignKeyConstraint baseColumnNames="previous_class_id"
+                                 baseTableName="enrolment"
+                                 constraintName="fk_enrolment_previous_class_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="class_room"/>
+
+    </changeSet>
+</databaseChangeLog>

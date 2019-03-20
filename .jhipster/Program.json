@@ -1,0 +1,59 @@
+{
+    "name": "Program",
+    "fields": [
+        {
+            "fieldName": "startHour",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endHour",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "subject",
+            "otherEntityRelationshipName": "program",
+            "relationshipName": "subject",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "classRoom",
+            "otherEntityRelationshipName": "program",
+            "relationshipName": "classRoom",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "room",
+            "otherEntityRelationshipName": "program",
+            "relationshipName": "room",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "days",
+            "otherEntityRelationshipName": "program",
+            "relationshipName": "days",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "schoolYear",
+            "otherEntityRelationshipName": "program",
+            "relationshipName": "schoolYear",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320223308",
+    "entityTableName": "program",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

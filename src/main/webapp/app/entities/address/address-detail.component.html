@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="address">
+            <h2><span jhiTranslate="mySchoolApp.address.detail.title">Address</span> {{address.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.address.mobilePhone">Mobile Phone</span></dt>
+                <dd>
+                    <span>{{address.mobilePhone}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.address.officePhone">Office Phone</span></dt>
+                <dd>
+                    <span>{{address.officePhone}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.address.homePhone">Home Phone</span></dt>
+                <dd>
+                    <span>{{address.homePhone}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.address.email">Email</span></dt>
+                <dd>
+                    <span>{{address.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.address.postalAddress">Postal Address</span></dt>
+                <dd>
+                    <span>{{address.postalAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.address.town">Town</span></dt>
+                <dd>
+                    <span>{{address.town}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.address.region">Region</span></dt>
+                <dd>
+                    <span>{{address.region}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.address.village">Village</span></dt>
+                <dd>
+                    <span>{{address.village}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.address.isPreferred">Is Preferred</span></dt>
+                <dd>
+                    <span>{{address.isPreferred}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.address.actor">Actor</span></dt>
+                <dd>
+                    <div *ngIf="address.actorId">
+                        <a [routerLink]="['/actor', address.actorId, 'view']">{{address.actorId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/address', address.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="leaveHoliDay">
+            <h2><span jhiTranslate="mySchoolApp.leaveHoliDay.detail.title">Leave Holi Day</span> {{leaveHoliDay.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mySchoolApp.leaveHoliDay.label">Label</span></dt>
+                <dd>
+                    <span>{{leaveHoliDay.label}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.leaveHoliDay.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{leaveHoliDay.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.leaveHoliDay.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{leaveHoliDay.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.leaveHoliDay.memo">Memo</span></dt>
+                <dd>
+                    <span>{{leaveHoliDay.memo}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.leaveHoliDay.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{leaveHoliDay.createdAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="mySchoolApp.leaveHoliDay.schoolYear">School Year</span></dt>
+                <dd>
+                    <div *ngIf="leaveHoliDay.schoolYearId">
+                        <a [routerLink]="['/school-year', leaveHoliDay.schoolYearId, 'view']">{{leaveHoliDay.schoolYearId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/leave-holi-day', leaveHoliDay.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

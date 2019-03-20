@@ -1,0 +1,101 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-school-heading" jhiTranslate="mySchoolApp.school.home.createOrEditLabel">Create or edit a School</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!school.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="school.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.schoolName" for="field_schoolName">School Name</label>
+                    <input type="text" class="form-control" name="schoolName" id="field_schoolName"
+                        [(ngModel)]="school.schoolName" required/>
+                    <div [hidden]="!(editForm.controls.schoolName?.dirty && editForm.controls.schoolName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.schoolName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.slogan" for="field_slogan">Slogan</label>
+                    <input type="text" class="form-control" name="slogan" id="field_slogan"
+                        [(ngModel)]="school.slogan" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.openningDate" for="field_openningDate">Openning Date</label>
+                    <div class="input-group">
+                        <input id="field_openningDate" type="text" class="form-control" name="openningDate" ngbDatepicker  #openningDateDp="ngbDatepicker" [(ngModel)]="school.openningDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="openningDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.phoneNumber1" for="field_phoneNumber1">Phone Number 1</label>
+                    <input type="text" class="form-control" name="phoneNumber1" id="field_phoneNumber1"
+                        [(ngModel)]="school.phoneNumber1" required/>
+                    <div [hidden]="!(editForm.controls.phoneNumber1?.dirty && editForm.controls.phoneNumber1?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.phoneNumber1?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.phoneNumber2" for="field_phoneNumber2">Phone Number 2</label>
+                    <input type="text" class="form-control" name="phoneNumber2" id="field_phoneNumber2"
+                        [(ngModel)]="school.phoneNumber2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="school.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.fax" for="field_fax">Fax</label>
+                    <input type="text" class="form-control" name="fax" id="field_fax"
+                        [(ngModel)]="school.fax" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.webSiteLink" for="field_webSiteLink">Web Site Link</label>
+                    <input type="text" class="form-control" name="webSiteLink" id="field_webSiteLink"
+                        [(ngModel)]="school.webSiteLink" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                        [(ngModel)]="school.address" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.town" for="field_town">Town</label>
+                    <input type="text" class="form-control" name="town" id="field_town"
+                        [(ngModel)]="school.town" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.region" for="field_region">Region</label>
+                    <input type="text" class="form-control" name="region" id="field_region"
+                        [(ngModel)]="school.region" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mySchoolApp.school.municipality" for="field_municipality">Municipality</label>
+                    <input type="text" class="form-control" name="municipality" id="field_municipality"
+                        [(ngModel)]="school.municipality" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

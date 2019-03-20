@@ -1,0 +1,25 @@
+{
+    "mySchoolApp": {
+        "actorRelationship": {
+            "home": {
+                "title": "Actor Relationships",
+                "createLabel": "Create a new Actor Relationship",
+                "createOrEditLabel": "Create or edit a Actor Relationship",
+                "search": "Search for Actor Relationship"
+            },
+            "created": "A new Actor Relationship is created with identifier {{ param }}",
+            "updated": "A Actor Relationship is updated with identifier {{ param }}",
+            "deleted": "A Actor Relationship is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Actor Relationship {{ id }}?"
+            },
+            "detail": {
+                "title": "Actor Relationship"
+            },
+            "isActive": "Is Active",
+            "responsible": "Responsible",
+            "student": "Student",
+            "relationshipType": "Relationship Type"
+        }
+    }
+}
