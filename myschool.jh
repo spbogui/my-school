@@ -1,0 +1,475 @@
+entity School {
+	schoolName String required,
+    slogan String,
+    openningDate LocalDate,
+    phoneNumber1 String required,
+    phoneNumber2 String,
+    email String,
+    fax String,
+    webSiteLink String,
+    address String,
+    town String,
+    region String,
+    municipality String
+}
+
+entity SchoolYear {
+	schoolYearlabel String required,
+    courseStartDate LocalDate required,
+    courseEndDate LocalDate required,
+    startDate LocalDate required,
+    endDate LocalDate required,
+    isBlankYear Boolean required
+}
+
+entity SchoolSchoolYear {
+	description String
+}
+
+relationship ManyToOne {
+	SchoolSchoolYear{schoolName} to School,
+    SchoolSchoolYear{schoolYearlabel} to SchoolYear
+}
+
+entity LeaveHoliDay {
+	label String required,
+	startDate LocalDate required,
+    endDate LocalDate,
+    memo String,
+    createdAt LocalDate required
+}
+
+relationship ManyToOne {
+	LeaveHoliDay{schoolYear} to SchoolYear
+}
+
+entity PeriodType {
+	periodLabel String required,
+    description String
+}
+
+entity Period {
+	startDate LocalDate required,
+    endDate LocalDate required,
+    createdAt LocalDate required
+}
+
+relationship ManyToOne {
+	Period{periodLabel} to PeriodType,
+    Period{schoolYearlabel} to SchoolYear
+}
+
+entity Cycle {
+	label String required,
+    description String
+}
+
+entity Level {
+	label String required,
+    shortForm String
+}
+
+relationship ManyToOne {
+	Level{parentLevel} to Level
+    Level{cycle} to Cycle
+}
+
+entity Diploma {
+	diplomaLabel String required
+    description String
+}
+
+relationship ManyToOne {
+	Diploma{cycle} to Cycle
+    Diploma{parentDiploma} to Diploma
+}
+
+entity ClassRoom {
+	name String required
+}
+
+relationship ManyToOne {
+	ClassRoom{level} to Level
+}
+
+entity Subject {
+	label String required
+    description String
+}
+
+entity RoomType {
+	label String required
+    description String
+}
+
+entity Room {
+	label String required
+}
+
+relationship ManyToOne {
+	Room{roomType} to RoomType
+}
+
+entity Days {
+	name String required
+}
+
+entity Program {
+	startHour Instant
+    endHour Instant
+}
+
+relationship ManyToOne {
+	Program{subject} to Subject
+    Program{classRoom} to ClassRoom
+    Program{room} to Room
+    Program{days} to Days
+    Program{schoolYear} to SchoolYear
+}
+
+entity Rubric {
+	name String required
+    description String
+}
+
+entity RubricAmount {
+	amount Double required
+    paymentMethod String required
+}
+
+relationship ManyToOne {
+	RubricAmount{rubric} to Rubric
+    RubricAmount{level} to Level
+    RubricAmount{schoolYear} to SchoolYear
+}
+
+entity Country {
+	name String required
+    manName String required
+    womanName String required
+}
+
+entity Actor {
+	birthDate LocalDate required
+    birthPlace String required
+    gender String required
+}
+
+relationship ManyToOne {
+	Actor{country} to Country
+}
+
+entity ActorName {
+	civility String required
+    familyName String required
+    givenName1 String required
+    givenName2 String
+    givenName3 String
+    maidenName String
+}
+
+relationship ManyToOne {
+	ActorName{actor} to Actor
+}
+
+entity Address {
+	mobilePhone String required
+    officePhone String
+    homePhone String
+    email String
+    postalAddress String
+    town String
+    region String
+    village String
+    isPreferred Boolean
+}
+
+relationship ManyToOne {
+	Address{actor} to Actor
+}
+
+entity IdentifierType {
+	name String required
+}
+
+entity ActorIdentifierNumber {
+	identifier String required
+}
+
+relationship ManyToOne {
+	ActorIdentifierNumber{identifierType} to IdentifierType
+    ActorIdentifierNumber{actor} to Actor
+}
+
+entity Image {
+	content Blob
+	name String
+    format String
+    imageSize String
+    isUsed Boolean
+}
+
+relationship ManyToOne {
+	Image{actor} to Actor 
+}
+
+entity Student {
+    pareantSeparated Boolean
+    fatherIsAlive Boolean required
+	livingWithFather Boolean required
+    motherIsAlive Boolean required
+    livingWithMother Boolean required
+}
+
+// using @MapsId after
+relationship OneToOne {
+	Student{actor} to Actor
+}
+
+entity Payment {
+	amount Double required
+    paymentDate LocalDate required
+}
+
+relationship ManyToOne {
+	Payment{actor} to Actor
+    Payment{rubric} to Rubric
+} 
+
+entity Regimen {
+	regimenLabel String required
+    description String
+}
+
+entity Enrolment {
+	enrolmentDate LocalDate required
+	regimenRate Double
+    repeating Boolean
+    modernLanguage1 String required
+    modernLanguage2 String
+    exemption Boolean required
+    withInsurance Boolean required
+}
+
+relationship ManyToOne {
+	Enrolment{schoolYear} to SchoolYear
+    Enrolment{actor} to Actor
+    Enrolment{classRoom} to ClassRoom
+    Enrolment{regimen} to Regimen
+    Enrolment{previousSchool} to School
+    Enrolment{previousClass} to ClassRoom
+}
+
+entity Responsible {
+	profession String
+}
+
+relationship OneToOne {
+	Responsible{actor} to Actor
+}
+
+entity RelationshipType {
+	name String required
+    description String
+}
+
+entity ActorRelationship {
+	isActive Boolean
+}
+
+relationship ManyToOne {
+	ActorRelationship{responsible} to Responsible
+    ActorRelationship{student} to Student
+    ActorRelationship{relationshipType} to RelationshipType
+}
+
+entity Employee {
+	hiringDate LocalDate required
+    employmentStartDate LocalDate required
+}
+
+relationship OneToOne {
+	Employee{actor} to Actor
+}
+
+entity Teacher {
+	hourlyRate Double required
+}
+
+//Use @MapsId 
+relationship OneToOne {
+	Teacher{employee} to Employee
+}
+
+relationship ManyToMany {
+	Teacher{subject} to Subject
+}
+
+entity TeacherSubjectSchoolYear {
+	isPrincipal Boolean 
+}
+
+relationship ManyToOne {
+	TeacherSubjectSchoolYear{actor} to Actor
+    TeacherSubjectSchoolYear{teacher} to Teacher
+    TeacherSubjectSchoolYear{schoolSchoolYear} to SchoolSchoolYear
+}
+
+entity Salary {
+	amount Double required
+    paymentDate LocalDate required
+    createdAt LocalDate required
+    memo String required
+}
+
+relationship ManyToOne {
+	Salary{employee} to Employee
+}
+
+entity Job {
+	name String required
+    description String
+}
+
+entity Staff {
+	
+}
+
+relationship OneToOne {
+	Staff{employee} to Employee
+}
+
+entity StaffJob {
+	startDate LocalDate required
+    endDate LocalDate
+}
+
+relationship OneToMany {
+	Staff{staffJob} to StaffJob
+}
+
+relationship ManyToOne {
+	StaffJob{job} to Job
+}
+entity ClassSessionType {
+	name String required
+    description String
+}
+
+entity ClassSession {
+	startHour Instant required
+    endHour Instant required
+    detail String required
+    createdAt LocalDate required
+}
+
+relationship ManyToOne {
+	ClassSession{classSessionType} to ClassSessionType
+    ClassSession{program} to Program
+}
+
+entity EvaluationType {
+	name String required
+    description String
+}
+
+entity Evaluation {
+	plannedDate LocalDate required
+    isDone Boolean
+    evaluationDate LocalDate
+    duration Integer
+}
+
+relationship ManyToOne {
+	Evaluation{evaluationType} to EvaluationType
+    Evaluation{schoolSchoolYear} to SchoolSchoolYear
+    Evaluation{period} to Period
+}
+
+relationship ManyToMany {
+	Evaluation{classRoom} to ClassRoom
+}
+
+entity StudentEvaluation {
+	grade Double required
+}
+
+entity EvaluationMode {
+	name String required
+    description String
+}
+
+relationship ManyToOne {
+    StudentEvaluation{actor} to Actor
+	StudentEvaluation{evaluation} to Evaluation
+    StudentEvaluation{evaluationMode} to EvaluationMode
+    StudentEvaluation{subject} to Subject
+}
+
+entity StudentMissingSession {
+	isJustified Boolean required
+}
+
+relationship ManyToOne {
+	StudentMissingSession{classSession} to ClassSession
+    StudentMissingSession{student} to Student
+}
+
+entity TeacherMissingSession {
+	isJustified Boolean required
+}
+
+relationship ManyToOne {
+	TeacherMissingSession{classSession} to ClassSession
+    TeacherMissingSession{student} to Teacher
+}
+
+entity AskingPermission {
+	askingDate LocalDate required
+    numberOfDay Integer required
+    reason String required
+}
+
+relationship ManyToOne {
+	AskingPermission{schoolSchoolYear} to SchoolSchoolYear
+    AskingPermission{student} to Student
+}
+
+entity PermissionAgreement {
+	permissionAllowed Boolean required
+    allowanceDate LocalDate
+    permissionStartDate LocalDate
+    permissionEndDate LocalDate
+    returnDate LocalDate
+    effectiveReturnDate LocalDate
+    memo String
+    
+}
+
+relationship OneToOne {
+	PermissionAgreement{askingPermission} to AskingPermission
+}
+
+entity StudentDiploma {
+	mention String required
+    graduationDate LocalDate required
+}
+
+relationship ManyToOne {
+	StudentDiploma{student} to Student
+    StudentDiploma{diploma} to Diploma
+    StudentDiploma{schoolSchoolYear} to SchoolSchoolYear
+}
+
+// Set pagination options
+paginate * with infinite-scroll except PeriodType, Cycle, RoomType, Days, Rubric, IdentifierType, Regimen, RelationshipType, ClassSessionType, EvaluationType, EvaluationMode
+paginate * with pagination except PeriodType, Cycle, RoomType, Days, Rubric, IdentifierType, Regimen, RelationshipType, ClassSessionType, EvaluationType, EvaluationMode
+
+// Use Data Transfert Objects (DTO)
+ dto * with mapstruct except PeriodType, Cycle, RoomType, Days, Rubric, IdentifierType, Regimen, RelationshipType, ClassSessionType, EvaluationType, EvaluationMode, Level
+
+// Set service options to all except few
+service all with serviceImpl // except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
